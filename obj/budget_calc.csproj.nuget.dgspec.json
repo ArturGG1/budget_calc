@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Тагир\\Desktop\\Новая папка (3)\\budget_calc\\budget_calc.csproj": {}
+    "C:\\aksis\\2024\\11_23\\budget_calc\\budget_calc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Тагир\\Desktop\\Новая папка (3)\\budget_calc\\budget_calc.csproj": {
+    "C:\\aksis\\2024\\11_23\\budget_calc\\budget_calc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Тагир\\Desktop\\Новая папка (3)\\budget_calc\\budget_calc.csproj",
+        "projectUniqueName": "C:\\aksis\\2024\\11_23\\budget_calc\\budget_calc.csproj",
         "projectName": "budget_calc",
-        "projectPath": "C:\\Users\\Тагир\\Desktop\\Новая папка (3)\\budget_calc\\budget_calc.csproj",
-        "packagesPath": "C:\\Users\\Тагир\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Тагир\\Desktop\\Новая папка (3)\\budget_calc\\obj\\",
+        "projectPath": "C:\\aksis\\2024\\11_23\\budget_calc\\budget_calc.csproj",
+        "packagesPath": "C:\\Users\\purpl\\.nuget\\packages\\",
+        "outputPath": "C:\\aksis\\2024\\11_23\\budget_calc\\obj\\",
         "projectStyle": "PackageReference",
         "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "C:\\Users\\Тагир\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\purpl\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
