@@ -13,6 +13,7 @@ namespace budget_calc;
 
 public partial class MainWindow : Window
 {
+    //TODO: сделать когда-нибудь стиль
     public Dictionary<string, double> budget = new Dictionary<string, double>();
     public MainWindow()
     {
@@ -26,13 +27,12 @@ public partial class MainWindow : Window
     private void ButtonIncome_OnClick(object sender, RoutedEventArgs e)
     {
         FrameContent.Source = new Uri("Income.xaml", UriKind.Relative);
-        //TODO: сделать стиль для вкладки "доходы"
     }
 
     private void ButtonHousing_OnClick(object sender, RoutedEventArgs e)
     {
-        //TODO: добавить вкладку "жильё"
         FrameContent.Source = new Uri("Housing.xaml", UriKind.Relative);
+        //TODO: добавить вкладку "жильё"
     }
 
     private void ButtonEntertainment_OnClick(object sender, RoutedEventArgs e)
