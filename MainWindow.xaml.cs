@@ -32,7 +32,6 @@ public partial class MainWindow : Window
     private void ButtonHousing_OnClick(object sender, RoutedEventArgs e)
     {
         FrameContent.Source = new Uri("Housing.xaml", UriKind.Relative);
-        //TODO: добавить вкладку "жильё"
     }
 
     private void ButtonEntertainment_OnClick(object sender, RoutedEventArgs e)
