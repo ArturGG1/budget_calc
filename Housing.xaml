@@ -6,18 +6,85 @@
       xmlns:local="clr-namespace:budget_calc"
       mc:Ignorable="d"
       Title="Housing" Height="350" Width="600">
-    <!-- TODO: сделать разметку -->
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="80"/>
         </Grid.ColumnDefinitions>
+        <!-- верхний ряд -->
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Запланированные затраты" HorizontalAlignment="Center" TextAlignment="Center" FontSize="18" TextWrapping="WrapWithOverflow"/>
+        <TextBlock Grid.Row="0" Grid.Column="2" Text="Фактические затраты" HorizontalAlignment="Center" TextAlignment="Center" FontSize="18" TextWrapping="WrapWithOverflow"/>
+        <TextBlock Grid.Row="0" Grid.Column="3" Text="Разница" HorizontalAlignment="Center" TextAlignment="Center" FontSize="18"/>
+        <!-- левый столбец -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="10" Orientation="Vertical">
+            <TextBlock Text="Ипотека/аренда" FontSize="18" HorizontalAlignment="Center"/>
+            <TextBlock Text="Мобильная связь" FontSize="18" HorizontalAlignment="Center"/>
+            <TextBlock Text="Электричество" FontSize="18" HorizontalAlignment="Center"/>
+            <TextBlock Text="Газ" FontSize="18" HorizontalAlignment="Center"/>
+            <TextBlock Text="Водоснабжение" FontSize="18" HorizontalAlignment="Center"/>
+            <TextBlock Text="Телевидение" FontSize="18" HorizontalAlignment="Center"/>
+            <TextBlock Text="Вывоз мусора" FontSize="18" HorizontalAlignment="Center"/>
+            <TextBlock Text="Ремонт/тех.обслуж." FontSize="18" HorizontalAlignment="Center"/>
+            <TextBlock Text="Материалы" FontSize="18" HorizontalAlignment="Center"/>
+            <TextBlock Text="Прочее" FontSize="18" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <!-- правый столбец -->
+        <StackPanel Grid.Row="1" Grid.Column="3" Grid.RowSpan="10" Orientation="Vertical">
+            <TextBlock Name="TextBlockLeft1" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
+            <TextBlock Name="TextBlockLeft2" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
+            <TextBlock Name="TextBlockLeft3" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
+            <TextBlock Name="TextBlockLeft4" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
+            <TextBlock Name="TextBlockLeft5" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
+            <TextBlock Name="TextBlockLeft6" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
+            <TextBlock Name="TextBlockLeft7" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
+            <TextBlock Name="TextBlockLeft8" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
+            <TextBlock Name="TextBlockLeft9" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
+            <TextBlock Name="TextBlockLeft10" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <!-- второй столбец -->
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="10">
+            <TextBox Name="TextBoxPlanned1" Margin="5,5,5,0" TextChanged="TextBoxPlanned1_OnTextChanged"/>
+            <TextBox Name="TextBoxPlanned2" Margin="5,5,5,0" TextChanged="TextBoxPlanned2_OnTextChanged"/>
+            <TextBox Name="TextBoxPlanned3" Margin="5,5,5,0" TextChanged="TextBoxPlanned3_OnTextChanged"/>
+            <TextBox Name="TextBoxPlanned4" Margin="5,5,5,0" TextChanged="TextBoxPlanned4_OnTextChanged"/>
+            <TextBox Name="TextBoxPlanned5" Margin="5,7,5,0" TextChanged="TextBoxPlanned5_OnTextChanged"/>
+            <TextBox Name="TextBoxPlanned6" Margin="5,7,5,0" TextChanged="TextBoxPlanned6_OnTextChanged"/>
+            <TextBox Name="TextBoxPlanned7" Margin="5,7,5,0" TextChanged="TextBoxPlanned7_OnTextChanged"/>
+            <TextBox Name="TextBoxPlanned8" Margin="5,7,5,0" TextChanged="TextBoxPlanned8_OnTextChanged"/>
+            <TextBox Name="TextBoxPlanned9" Margin="5,5,5,0" TextChanged="TextBoxPlanned9_OnTextChanged"/>
+            <TextBox Name="TextBoxPlanned10" Margin="5,5,5,0" TextChanged="TextBoxPlanned10_OnTextChanged"/>
+        </StackPanel>
+        <!-- третий столбец -->
+        <StackPanel Grid.Row="1" Grid.Column="2" Grid.RowSpan="10">
+            <TextBox Name="TextBoxActual1" Margin="5,5,5,0" TextChanged="TextBoxActual1_OnTextChanged"/>
+            <TextBox Name="TextBoxActual2" Margin="5,5,5,0" TextChanged="TextBoxActual2_OnTextChanged"/>
+            <TextBox Name="TextBoxActual3" Margin="5,5,5,0" TextChanged="TextBoxActual3_OnTextChanged"/>
+            <TextBox Name="TextBoxActual4" Margin="5,5,5,0" TextChanged="TextBoxActual4_OnTextChanged"/>
+            <TextBox Name="TextBoxActual5" Margin="5,7,5,0" TextChanged="TextBoxActual5_OnTextChanged"/>
+            <TextBox Name="TextBoxActual6" Margin="5,7,5,0" TextChanged="TextBoxActual6_OnTextChanged"/>
+            <TextBox Name="TextBoxActual7" Margin="5,7,5,0" TextChanged="TextBoxActual7_OnTextChanged"/>
+            <TextBox Name="TextBoxActual8" Margin="5,7,5,0" TextChanged="TextBoxActual8_OnTextChanged"/>
+            <TextBox Name="TextBoxActual9" Margin="5,5,5,0" TextChanged="TextBoxActual9_OnTextChanged"/>
+            <TextBox Name="TextBoxActual10" Margin="5,5,5,0" TextChanged="TextBoxActual10_OnTextChanged"/>
+        </StackPanel>
+        <!-- нижний ряд -->
+        <TextBlock Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="3" Text="Промежуточный итог:" FontSize="18" HorizontalAlignment="Right"/>
+        <TextBlock Grid.Row="11" Grid.Column="3" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
     </Grid>
 </Page>
