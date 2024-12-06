@@ -5,7 +5,25 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:budget_calc"
       mc:Ignorable="d"
-      Title="Housing" Height="350" Width="600">
+      Title="Housing" Height="400" Width="600"
+      Foreground="White" Background="#2E2E2E">
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Background" Value="#2E2E2E"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="#3C3C3C"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Vertical"/>
+        </Style>
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -25,37 +43,37 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="120"/>
         </Grid.ColumnDefinitions>
         <!-- верхний ряд -->
-        <TextBlock Grid.Row="0" Grid.Column="1" Text="Запланированные затраты" HorizontalAlignment="Center" TextAlignment="Center" FontSize="18" TextWrapping="WrapWithOverflow"/>
-        <TextBlock Grid.Row="0" Grid.Column="2" Text="Фактические затраты" HorizontalAlignment="Center" TextAlignment="Center" FontSize="18" TextWrapping="WrapWithOverflow"/>
-        <TextBlock Grid.Row="0" Grid.Column="3" Text="Разница" HorizontalAlignment="Center" TextAlignment="Center" FontSize="18"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Запланированные затраты"/>
+        <TextBlock Grid.Row="0" Grid.Column="2" Text="Фактические затраты"/>
+        <TextBlock Grid.Row="0" Grid.Column="3" Text="Разница"/>
         <!-- левый столбец -->
-        <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="10" Orientation="Vertical">
-            <TextBlock Text="Ипотека/аренда" FontSize="18" HorizontalAlignment="Center"/>
-            <TextBlock Text="Мобильная связь" FontSize="18" HorizontalAlignment="Center"/>
-            <TextBlock Text="Электричество" FontSize="18" HorizontalAlignment="Center"/>
-            <TextBlock Text="Газ" FontSize="18" HorizontalAlignment="Center"/>
-            <TextBlock Text="Водоснабжение" FontSize="18" HorizontalAlignment="Center"/>
-            <TextBlock Text="Телевидение" FontSize="18" HorizontalAlignment="Center"/>
-            <TextBlock Text="Вывоз мусора" FontSize="18" HorizontalAlignment="Center"/>
-            <TextBlock Text="Ремонт/тех.обслуж." FontSize="18" HorizontalAlignment="Center"/>
-            <TextBlock Text="Материалы" FontSize="18" HorizontalAlignment="Center"/>
-            <TextBlock Text="Прочее" FontSize="18" HorizontalAlignment="Center"/>
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="10">
+            <TextBlock Text="Ипотека/аренда"/>
+            <TextBlock Text="Мобильная связь"/>
+            <TextBlock Text="Электричество"/>
+            <TextBlock Text="Газ"/>
+            <TextBlock Text="Водоснабжение"/>
+            <TextBlock Text="Телевидение"/>
+            <TextBlock Text="Вывоз мусора"/>
+            <TextBlock Text="Ремонт/тех.обслуж." TextWrapping="NoWrap"/>
+            <TextBlock Text="Материалы"/>
+            <TextBlock Text="Прочее"/>
         </StackPanel>
         <!-- правый столбец -->
-        <StackPanel Grid.Row="1" Grid.Column="3" Grid.RowSpan="10" Orientation="Vertical">
-            <TextBlock Name="TextBlockLeft1" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
-            <TextBlock Name="TextBlockLeft2" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
-            <TextBlock Name="TextBlockLeft3" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
-            <TextBlock Name="TextBlockLeft4" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
-            <TextBlock Name="TextBlockLeft5" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
-            <TextBlock Name="TextBlockLeft6" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
-            <TextBlock Name="TextBlockLeft7" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
-            <TextBlock Name="TextBlockLeft8" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
-            <TextBlock Name="TextBlockLeft9" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
-            <TextBlock Name="TextBlockLeft10" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
+        <StackPanel Grid.Row="1" Grid.Column="3" Grid.RowSpan="10">
+            <TextBlock Name="TextBlockLeft1" Text="0 руб."/>
+            <TextBlock Name="TextBlockLeft2" Text="0 руб."/>
+            <TextBlock Name="TextBlockLeft3" Text="0 руб."/>
+            <TextBlock Name="TextBlockLeft4" Text="0 руб."/>
+            <TextBlock Name="TextBlockLeft5" Text="0 руб."/>
+            <TextBlock Name="TextBlockLeft6" Text="0 руб."/>
+            <TextBlock Name="TextBlockLeft7" Text="0 руб."/>
+            <TextBlock Name="TextBlockLeft8" Text="0 руб."/>
+            <TextBlock Name="TextBlockLeft9" Text="0 руб."/>
+            <TextBlock Name="TextBlockLeft10" Text="0 руб."/>
         </StackPanel>
         <!-- второй столбец -->
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="10">
@@ -84,7 +102,7 @@
             <TextBox Name="TextBoxActual10" Margin="5,5,5,0" TextChanged="TextBoxActual10_OnTextChanged"/>
         </StackPanel>
         <!-- нижний ряд -->
-        <TextBlock Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="3" Text="Промежуточный итог:" FontSize="18" HorizontalAlignment="Right" Margin="0,0,30,0"/>
-        <TextBlock Grid.Row="11" Grid.Column="3" Name="TextBlockTotal" Text="0 руб." FontSize="18" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="3" Text="Промежуточный итог:" FontSize="20" HorizontalAlignment="Right" Margin="0,0,20,0"/>
+        <TextBlock Grid.Row="11" Grid.Column="3" Name="TextBlockTotal" Text="0 руб." FontSize="20" HorizontalAlignment="Center"/>
     </Grid>
 </Page>

@@ -95,6 +95,7 @@ public partial class MainWindow : Window
 
     private void MainWindow_OnSizeChanged(object sender, SizeChangedEventArgs e)
     {
-        Grid1.ColumnDefinitions[0].Width = new GridLength(this.ActualWidth / 8);
+        //TODO: разобраться с динамическими размерами
+        //Grid1.ColumnDefinitions[0].Width = new GridLength(this.ActualWidth / 8);
     }
 }
