@@ -35,7 +35,7 @@ public partial class MainWindow : Window
 
     private void ButtonEntertainment_OnClick(object sender, RoutedEventArgs e)
     {
-        //TODO: добавить вкладку "развлечения"
+        FrameContent.Source = new Uri("Entertainment.xaml", UriKind.Relative);
     }
 
     private void ButtonTransport_OnClick(object sender, RoutedEventArgs e)
