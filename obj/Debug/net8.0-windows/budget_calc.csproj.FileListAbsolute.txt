@@ -27,3 +27,5 @@ C:\aksis\2024\11_23\budget_calc\obj\Debug\net8.0-windows\Housing.g.cs
 C:\aksis\2024\11_23\budget_calc\obj\Debug\net8.0-windows\Housing.baml
 C:\aksis\2024\11_23\budget_calc\obj\Debug\net8.0-windows\Entertainment.g.cs
 C:\aksis\2024\11_23\budget_calc\obj\Debug\net8.0-windows\Entertainment.baml
+C:\aksis\2024\11_23\budget_calc\obj\Debug\net8.0-windows\Transport.g.cs
+C:\aksis\2024\11_23\budget_calc\obj\Debug\net8.0-windows\Transport.baml

@@ -40,7 +40,7 @@ public partial class MainWindow : Window
 
     private void ButtonTransport_OnClick(object sender, RoutedEventArgs e)
     {
-        //TODO: добавить вкладку "транспорт"
+        FrameContent.Source = new Uri("Transport.xaml", UriKind.Relative);
     }
 
     private void ButtonCredits_OnClick(object sender, RoutedEventArgs e)
