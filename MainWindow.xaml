@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Личный бюджет на месяц" Height="600" Width="800" MinHeight="600" MinWidth="800"
         SizeChanged="MainWindow_OnSizeChanged">
+    <!-- TODO: сделать стиль -->
     <Grid Name="Grid1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"></ColumnDefinition>

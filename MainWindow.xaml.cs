@@ -13,7 +13,6 @@ namespace budget_calc;
 
 public partial class MainWindow : Window
 {
-    //TODO: сделать когда-нибудь стиль
     public Dictionary<string, double> budget = new Dictionary<string, double>();
     public MainWindow()
     {
