@@ -1,18 +1,27 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace budget_calc;
-public partial class Housing : Page
+public partial class Entertainment : Page
 {
     private MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
-    private const int RowCount = 10;
-    public Housing()
+    private const int RowCount = 7;
+    
+    public Entertainment()
     {
         InitializeComponent();
         for (int i = 1; i <= RowCount; i++)
         {
-            UpdateTextBoxFromBudget("HousingPlanned" + i.ToString(), (TextBox)this.FindName("TextBoxPlanned" + i.ToString()));
-            UpdateTextBoxFromBudget("HousingActual" + i.ToString(), (TextBox)this.FindName("TextBoxActual" + i.ToString()));
+            UpdateTextBoxFromBudget("EntertainmentPlanned" + i.ToString(), (TextBox)this.FindName("TextBoxPlanned" + i.ToString()));
+            UpdateTextBoxFromBudget("EntertainmentActual" + i.ToString(), (TextBox)this.FindName("TextBoxActual" + i.ToString()));
+        }
+    }
+
+    private void UpdateTextBoxFromBudget(string key, TextBox textBox)
+    {
+        if (mainWindow.budget.ContainsKey(key))
+        {
+            textBox.Text = mainWindow.budget[key].ToString();
         }
     }
     private void UpdateTextBlock(TextBox planned, TextBox actual, TextBlock result)
@@ -36,35 +45,28 @@ public partial class Housing : Page
             result.Text = "0 руб.";
         }
     }
+
     private void UpdateTextBlocks()
     {
+        double total = 0;
         for (int i = 1; i <= RowCount; i++)
         {
             try
             {
                 UpdateTextBlock((TextBox)this.FindName("TextBoxPlanned" + i.ToString()),
-                                 (TextBox)this.FindName("TextBoxActual" + i.ToString()),
-                                  (TextBlock)this.FindName("TextBlockLeft" + i.ToString()));
+                                (TextBox)this.FindName("TextBoxActual" + i.ToString()),
+                                (TextBlock)this.FindName("TextBlockLeft" + i.ToString()));
+
+                if (mainWindow.budget.ContainsKey("EntertainmentPlanned" + i.ToString()) && mainWindow.budget.ContainsKey("EntertainmentActual" + i.ToString()))
+                {
+                    total += (mainWindow.budget["EntertainmentPlanned" + i.ToString()] - mainWindow.budget["EntertainmentActual" + i.ToString()]);
+                }
             }
             catch {}
         }
-        double total = 0;
-        for (int i = 1; i <= RowCount; i++)
-        {
-            if (mainWindow.budget.ContainsKey("HousingPlanned" + i.ToString()) && mainWindow.budget.ContainsKey("HousingActual" + i.ToString()))
-            {
-                total += (mainWindow.budget["HousingPlanned" + i.ToString()] - mainWindow.budget["HousingActual" + i.ToString()]);
-            }
-        }
         TextBlockTotal.Text = total.ToString() + " руб.";
     }
-    private void UpdateTextBoxFromBudget(string key, TextBox textBox)
-    {
-        if (mainWindow.budget.ContainsKey(key))
-        {
-            textBox.Text = mainWindow.budget[key].ToString();
-        }
-    }
+
     private void UpdateBudget(string key, TextBox textBox)
     {
         try
@@ -84,122 +86,88 @@ public partial class Housing : Page
             textBox.Text = "0";
         }
     }
+
     private void TextBoxPlanned1_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        UpdateBudget("HousingPlanned1", TextBoxPlanned1);
+        UpdateBudget("EntertainmentPlanned1", (TextBox)sender);
         UpdateTextBlocks();
     }
 
     private void TextBoxPlanned2_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        UpdateBudget("HousingPlanned2", TextBoxPlanned2);
+        UpdateBudget("EntertainmentPlanned2", (TextBox)sender);
         UpdateTextBlocks();
     }
 
     private void TextBoxPlanned3_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        UpdateBudget("HousingPlanned3", TextBoxPlanned3);
+        UpdateBudget("EntertainmentPlanned3", (TextBox)sender);
         UpdateTextBlocks();
     }
 
     private void TextBoxPlanned4_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        UpdateBudget("HousingPlanned4", TextBoxPlanned4);
+        UpdateBudget("EntertainmentPlanned4", (TextBox)sender);
         UpdateTextBlocks();
     }
 
     private void TextBoxPlanned5_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        UpdateBudget("HousingPlanned5", TextBoxPlanned5);
+        UpdateBudget("EntertainmentPlanned5", (TextBox)sender);
         UpdateTextBlocks();
     }
 
     private void TextBoxPlanned6_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        UpdateBudget("HousingPlanned6", TextBoxPlanned6);
+        UpdateBudget("EntertainmentPlanned6", (TextBox)sender);
         UpdateTextBlocks();
     }
 
     private void TextBoxPlanned7_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        UpdateBudget("HousingPlanned7", TextBoxPlanned7);
-        UpdateTextBlocks();
-    }
-
-    private void TextBoxPlanned8_OnTextChanged(object sender, TextChangedEventArgs e)
-    {
-        UpdateBudget("HousingPlanned8", TextBoxPlanned8);
-        UpdateTextBlocks();
-    }
-
-    private void TextBoxPlanned9_OnTextChanged(object sender, TextChangedEventArgs e)
-    {
-        UpdateBudget("HousingPlanned9", TextBoxPlanned9);
-        UpdateTextBlocks();
-    }
-
-    private void TextBoxPlanned10_OnTextChanged(object sender, TextChangedEventArgs e)
-    {
-        UpdateBudget("HousingPlanned10", TextBoxPlanned10);
+        UpdateBudget("EntertainmentPlanned7", (TextBox)sender);
         UpdateTextBlocks();
     }
 
     private void TextBoxActual1_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        UpdateBudget("HousingActual1", TextBoxActual1);
+        UpdateBudget("EntertainmentActual1", (TextBox)sender);
         UpdateTextBlocks();
     }
+
     private void TextBoxActual2_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        UpdateBudget("HousingActual2", TextBoxActual2);
+        UpdateBudget("EntertainmentActual2", (TextBox)sender);
         UpdateTextBlocks();
     }
 
     private void TextBoxActual3_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        UpdateBudget("HousingActual3", TextBoxActual3);
+        UpdateBudget("EntertainmentActual3", (TextBox)sender);
         UpdateTextBlocks();
     }
 
     private void TextBoxActual4_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        UpdateBudget("HousingActual4", TextBoxActual4);
+        UpdateBudget("EntertainmentActual4", (TextBox)sender);
         UpdateTextBlocks();
     }
 
     private void TextBoxActual5_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        UpdateBudget("HousingActual5", TextBoxActual5);
+        UpdateBudget("EntertainmentActual5", (TextBox)sender);
         UpdateTextBlocks();
     }
 
     private void TextBoxActual6_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        UpdateBudget("HousingActual6", TextBoxActual6);
+        UpdateBudget("EntertainmentActual6", (TextBox)sender);
         UpdateTextBlocks();
     }
 
     private void TextBoxActual7_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        UpdateBudget("HousingActual7", TextBoxActual7);
-        UpdateTextBlocks();
-    }
-
-    private void TextBoxActual8_OnTextChanged(object sender, TextChangedEventArgs e)
-    {
-        UpdateBudget("HousingActual8", TextBoxActual8);
-        UpdateTextBlocks();
-    }
-
-    private void TextBoxActual9_OnTextChanged(object sender, TextChangedEventArgs e)
-    {
-        UpdateBudget("HousingActual9", TextBoxActual9);
-        UpdateTextBlocks();
-    }
-
-    private void TextBoxActual10_OnTextChanged(object sender, TextChangedEventArgs e)
-    {
-        UpdateBudget("HousingActual10", TextBoxActual10);
+        UpdateBudget("EntertainmentActual7", (TextBox)sender);
         UpdateTextBlocks();
     }
 }

@@ -6,10 +6,36 @@
         xmlns:local="clr-namespace:budget_calc"
         mc:Ignorable="d"
         Title="Личный бюджет на месяц" Height="600" Width="800" MinHeight="600" MinWidth="800"
+        Foreground="White" Background="#2E2E2E"
         SizeChanged="MainWindow_OnSizeChanged">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#3C3C3C"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#5A5A5A"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Nunito"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid Name="Grid1">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="120"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Orientation="Vertical">

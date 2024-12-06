@@ -13,7 +13,6 @@ namespace budget_calc;
 
 public partial class MainWindow : Window
 {
-    //TODO: сделать когда-нибудь стиль
     public Dictionary<string, double> budget = new Dictionary<string, double>();
     public MainWindow()
     {
@@ -36,12 +35,12 @@ public partial class MainWindow : Window
 
     private void ButtonEntertainment_OnClick(object sender, RoutedEventArgs e)
     {
-        //TODO: добавить вкладку "развлечения"
+        FrameContent.Source = new Uri("Entertainment.xaml", UriKind.Relative);
     }
 
     private void ButtonTransport_OnClick(object sender, RoutedEventArgs e)
     {
-        //TODO: добавить вкладку "транспорт"
+        FrameContent.Source = new Uri("Transport.xaml", UriKind.Relative);
     }
 
     private void ButtonCredits_OnClick(object sender, RoutedEventArgs e)
@@ -96,6 +95,7 @@ public partial class MainWindow : Window
 
     private void MainWindow_OnSizeChanged(object sender, SizeChangedEventArgs e)
     {
-        Grid1.ColumnDefinitions[0].Width = new GridLength(this.ActualWidth / 8);
+        //TODO: разобраться с динамическими размерами
+        //Grid1.ColumnDefinitions[0].Width = new GridLength(this.ActualWidth / 8);
     }
 }
