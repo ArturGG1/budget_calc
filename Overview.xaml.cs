@@ -8,6 +8,7 @@ public partial class Overview : Page
     private MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
     public Overview()
     {
+        //TODO: прописать логику (в самом конце)
         InitializeComponent();
     }
 }

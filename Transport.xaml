@@ -55,20 +55,20 @@
             <TextBlock Text="Другое"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="6">
-            <TextBox Name="TextBoxPlanned1" Margin="5,5,5,0" TextChanged="TextBoxPlanned1_OnTextChanged"/>
-            <TextBox Name="TextBoxPlanned2" Margin="5,5,5,0" TextChanged="TextBoxPlanned2_OnTextChanged"/>
-            <TextBox Name="TextBoxPlanned3" Margin="5,5,5,0" TextChanged="TextBoxPlanned3_OnTextChanged"/>
-            <TextBox Name="TextBoxPlanned4" Margin="5,5,5,0" TextChanged="TextBoxPlanned4_OnTextChanged"/>
-            <TextBox Name="TextBoxPlanned5" Margin="5,7,5,0" TextChanged="TextBoxPlanned5_OnTextChanged"/>
-            <TextBox Name="TextBoxPlanned6" Margin="5,7,5,0" TextChanged="TextBoxPlanned6_OnTextChanged"/>
+            <TextBox Name="TextBoxPlanned1" Margin="5,5,5,0" TextChanged="TextBox_OnTextChanged"/>
+            <TextBox Name="TextBoxPlanned2" Margin="5,5,5,0" TextChanged="TextBox_OnTextChanged"/>
+            <TextBox Name="TextBoxPlanned3" Margin="5,5,5,0" TextChanged="TextBox_OnTextChanged"/>
+            <TextBox Name="TextBoxPlanned4" Margin="5,5,5,0" TextChanged="TextBox_OnTextChanged"/>
+            <TextBox Name="TextBoxPlanned5" Margin="5,7,5,0" TextChanged="TextBox_OnTextChanged"/>
+            <TextBox Name="TextBoxPlanned6" Margin="5,7,5,0" TextChanged="TextBox_OnTextChanged"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2" Grid.RowSpan="6">
-            <TextBox Name="TextBoxActual1" Margin="5,5,5,0" TextChanged="TextBoxActual1_OnTextChanged"/>
-            <TextBox Name="TextBoxActual2" Margin="5,5,5,0" TextChanged="TextBoxActual2_OnTextChanged"/>
-            <TextBox Name="TextBoxActual3" Margin="5,5,5,0" TextChanged="TextBoxActual3_OnTextChanged"/>
-            <TextBox Name="TextBoxActual4" Margin="5,5,5,0" TextChanged="TextBoxActual4_OnTextChanged"/>
-            <TextBox Name="TextBoxActual5" Margin="5,7,5,0" TextChanged="TextBoxActual5_OnTextChanged"/>
-            <TextBox Name="TextBoxActual6" Margin="5,7,5,0" TextChanged="TextBoxActual6_OnTextChanged"/>
+            <TextBox Name="TextBoxActual1" Margin="5,5,5,0" TextChanged="TextBox_OnTextChanged"/>
+            <TextBox Name="TextBoxActual2" Margin="5,5,5,0" TextChanged="TextBox_OnTextChanged"/>
+            <TextBox Name="TextBoxActual3" Margin="5,5,5,0" TextChanged="TextBox_OnTextChanged"/>
+            <TextBox Name="TextBoxActual4" Margin="5,5,5,0" TextChanged="TextBox_OnTextChanged"/>
+            <TextBox Name="TextBoxActual5" Margin="5,7,5,0" TextChanged="TextBox_OnTextChanged"/>
+            <TextBox Name="TextBoxActual6" Margin="5,7,5,0" TextChanged="TextBox_OnTextChanged"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="3" Grid.RowSpan="6">
             <TextBlock Name="TextBlockLeft1" Text="0 руб."/>
