@@ -29,15 +29,8 @@ public partial class MainWindow : Window
         //TODO: добавить вкладку "личная гигиена"       (Hygiene)
         //TODO: добавить вкладку "юридические расходы"  (LegalSpending)
         //TODO: добавить вкладку "итоговые затраты"     (TotalSpending)
-        string name = ((Button)sender).Name.Substring(6) + ".xaml";
-        try
-        {
-            FrameContent.Source = new Uri(name, UriKind.Relative);
-        }
-        catch
-        {
-            MessageBox.Show("Вкладка ещё не добавлена.","Внимание!",MessageBoxButton.OK,MessageBoxImage.Information);
-        }
+        string name = "Pages/" + ((Button)sender).Name.Substring(6) + ".xaml";
+        FrameContent.Source = new Uri(name, UriKind.Relative);
     }
     private void MainWindow_OnSizeChanged(object sender, SizeChangedEventArgs e)
     {

@@ -55,6 +55,6 @@
             <Button Name="ButtonLegalSpending" Content="Юр. расходы" Margin="10,5,0,0" Click="Button_OnClick"/>
             <Button Name="ButtonTotalSpending" Content="Общие затраты" Margin="10,5,0,0" Click="Button_OnClick"/>
         </StackPanel>
-        <Frame Name="FrameContent" Grid.Column="1" Source="Overview.xaml" NavigationUIVisibility="Hidden"/>
+        <Frame Name="FrameContent" Grid.Column="1" Source="Pages/Overview.xaml" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
