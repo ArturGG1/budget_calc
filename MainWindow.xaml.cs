@@ -12,14 +12,13 @@ using System.Windows.Shapes;
 namespace budget_calc;
 public partial class MainWindow : Window
 {
-    public Dictionary<string, double> budget = new Dictionary<string, double>();
+    public BudgetUpdater budgetUpdater = new BudgetUpdater();
     public MainWindow()
     {
         InitializeComponent();
     }
     private void Button_OnClick(object sender, RoutedEventArgs e)
     {
-        //TODO: добавить вкладку "кредиты"              (Credits)
         //TODO: добавить вкладку "страхование"          (Insurance)
         //TODO: добавить вкладку "налоги"               (Taxes)
         //TODO: добавить вкладку "еда"                  (Food)
