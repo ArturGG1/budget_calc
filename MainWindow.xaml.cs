@@ -10,7 +10,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace budget_calc;
-
 public partial class MainWindow : Window
 {
     public Dictionary<string, double> budget = new Dictionary<string, double>();
@@ -18,85 +17,24 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
-    private void ButtonOverview_OnClick(object sender, RoutedEventArgs e)
+    private void Button_OnClick(object sender, RoutedEventArgs e)
     {
-        FrameContent.Source = new Uri("Overview.xaml", UriKind.Relative);
+        //TODO: добавить вкладку "кредиты"              (Credits)
+        //TODO: добавить вкладку "страхование"          (Insurance)
+        //TODO: добавить вкладку "налоги"               (Taxes)
+        //TODO: добавить вкладку "еда"                  (Food)
+        //TODO: добавить вкладку "инвестиции"           (Invest)
+        //TODO: добавить вкладку "питомцы"              (Pets)
+        //TODO: добавить вкладку "пожертвования"        (Gifts)
+        //TODO: добавить вкладку "личная гигиена"       (Hygiene)
+        //TODO: добавить вкладку "юридические расходы"  (LegalSpending)
+        //TODO: добавить вкладку "итоговые затраты"     (TotalSpending)
+        string name = "Pages/" + ((Button)sender).Name.Substring(6) + ".xaml";
+        FrameContent.Source = new Uri(name, UriKind.Relative);
     }
-
-    private void ButtonIncome_OnClick(object sender, RoutedEventArgs e)
-    {
-        FrameContent.Source = new Uri("Income.xaml", UriKind.Relative);
-        //TODO: сделать стиль для вкладки "доходы"
-    }
-
-    private void ButtonHousing_OnClick(object sender, RoutedEventArgs e)
-    {
-        //TODO: добавить вкладку "жильё"
-        FrameContent.Source = new Uri("Housing.xaml", UriKind.Relative);
-    }
-
-    private void ButtonEntertainment_OnClick(object sender, RoutedEventArgs e)
-    {
-        //TODO: добавить вкладку "развлечения"
-    }
-
-    private void ButtonTransport_OnClick(object sender, RoutedEventArgs e)
-    {
-        //TODO: добавить вкладку "транспорт"
-    }
-
-    private void ButtonCredits_OnClick(object sender, RoutedEventArgs e)
-    {
-        //TODO: добавить вкладку "кредиты"
-    }
-
-    private void ButtonInsurance_OnClick(object sender, RoutedEventArgs e)
-    {
-        //TODO: добавить вкладку "страхование"
-    }
-
-    private void ButtonTaxes_OnClick(object sender, RoutedEventArgs e)
-    {
-        //TODO: добавить вкладку "налоги"
-    }
-
-    private void ButtonFood_OnClick(object sender, RoutedEventArgs e)
-    {
-        //TODO: добавить вкладку "еда"
-    }
-
-    private void ButtonInvest_OnClick(object sender, RoutedEventArgs e)
-    {
-        //TODO: добавить вкладку "инвестиции"
-    }
-
-    private void ButtonPets_OnClick(object sender, RoutedEventArgs e)
-    {
-        //TODO: добавить вкладку "питомцы"
-    }
-
-    private void ButtonGifts_OnClick(object sender, RoutedEventArgs e)
-    {
-        //TODO: добавить вкладку "пожертвования"
-    }
-
-    private void ButtonHygiene_OnClick(object sender, RoutedEventArgs e)
-    {
-        //TODO: добавить вкладку "личная гигиена"
-    }
-
-    private void ButtonLegalSpending_OnClick(object sender, RoutedEventArgs e)
-    {
-        //TODO: добавить вкладку "юридические расходы"
-    }
-
-    private void ButtonTotalSpending_OnClick(object sender, RoutedEventArgs e)
-    {
-        //TODO: добавить вкладку "итоговые затраты"
-    }
-
     private void MainWindow_OnSizeChanged(object sender, SizeChangedEventArgs e)
     {
-        Grid1.ColumnDefinitions[0].Width = new GridLength(this.ActualWidth / 8);
+        //TODO: разобраться с динамическими размерами
+        //Grid1.ColumnDefinitions[0].Width = new GridLength(this.ActualWidth / 8);
     }
 }
