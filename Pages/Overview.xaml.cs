@@ -15,8 +15,8 @@ public partial class Overview : Page
         (PlannedSpending, ActualSpending) = budgetUpdater.GetTotalSpending();
         PlannedLeft.Text = (PlannedIncome - PlannedSpending).ToString();
         ActualLeft.Text = (ActualIncome - ActualSpending).ToString();
-        Difference.Text = (double.Parse(PlannedLeft.Text) - double.Parse(ActualLeft.Text)).ToString() + " руб.";
-        if ((double.Parse(PlannedLeft.Text) - double.Parse(ActualLeft.Text)) < 0) Difference.Foreground = Brushes.Red;
+        Difference.Text = (double.Parse(ActualLeft.Text) - double.Parse(PlannedLeft.Text)).ToString() + " руб.";
+        if ((double.Parse(ActualLeft.Text) - double.Parse(PlannedLeft.Text)) < 0) Difference.Foreground = Brushes.Red;
         PlannedLeft.Text = PlannedLeft.Text + " руб.";
         ActualLeft.Text = ActualLeft.Text + " руб.";
     }

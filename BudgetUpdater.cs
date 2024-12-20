@@ -139,6 +139,7 @@ public class BudgetUpdater
     }
     public void LoadBudget()
     {
+        Budget = new Dictionary<string, double>();
         if (!File.Exists(PathToBudget)) return;
         Budget = JsonSerializer.Deserialize<Dictionary<string, double>>(File.ReadAllText(PathToBudget));
     }
