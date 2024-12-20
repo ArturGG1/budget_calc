@@ -16,6 +16,7 @@ public class BudgetUpdater
         {"Food", 4},
         {"Invest", 3},
         {"Pets", 5},
+        {"Hygiene", 6},
     };
     public BudgetUpdater()
     {
