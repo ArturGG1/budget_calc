@@ -35,8 +35,8 @@
         <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="Месячный доход" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Плановый:" FontSize="30" VerticalAlignment="Center"/>
         <TextBlock Grid.Row="2" Grid.Column="0" Text="Фактический:" FontSize="30" VerticalAlignment="Center"/>
-        <TextBox Name="TextBoxPlannedIncome" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="300" FontSize="20" TextChanged="TextBoxPlannedIncome_OnTextChanged"/>
-        <TextBox Name="TextBoxActualIncome" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="300" FontSize="20" TextChanged="TextBoxActualIncome_OnTextChanged"/>
+        <TextBox Name="TextBoxPlannedIncome" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="300" FontSize="20" TextChanged="TextBoxIncome_OnTextChanged"/>
+        <TextBox Name="TextBoxActualIncome" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="300" FontSize="20" TextChanged="TextBoxIncome_OnTextChanged"/>
         <TextBlock Grid.Row="1" Grid.Column="2" Text="руб." VerticalAlignment="Center" FontSize="20" Margin="10,0,0,0"/>
         <TextBlock Grid.Row="2" Grid.Column="2" Text="руб." VerticalAlignment="Center" FontSize="20" Margin="10,0,0,0"/>
     </Grid>

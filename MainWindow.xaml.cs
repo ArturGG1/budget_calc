@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.ComponentModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,23 +13,18 @@ using System.Windows.Shapes;
 namespace budget_calc;
 public partial class MainWindow : Window
 {
-    public Dictionary<string, double> budget = new Dictionary<string, double>();
+    public BudgetUpdater budgetUpdater = new();
     public MainWindow()
     {
         InitializeComponent();
     }
+    protected override void OnClosing(CancelEventArgs e)
+    {
+        budgetUpdater.SaveBudget();
+        base.OnClosing(e);
+    }
     private void Button_OnClick(object sender, RoutedEventArgs e)
     {
-        //TODO: добавить вкладку "кредиты"              (Credits)
-        //TODO: добавить вкладку "страхование"          (Insurance)
-        //TODO: добавить вкладку "налоги"               (Taxes)
-        //TODO: добавить вкладку "еда"                  (Food)
-        //TODO: добавить вкладку "инвестиции"           (Invest)
-        //TODO: добавить вкладку "питомцы"              (Pets)
-        //TODO: добавить вкладку "пожертвования"        (Gifts)
-        //TODO: добавить вкладку "личная гигиена"       (Hygiene)
-        //TODO: добавить вкладку "юридические расходы"  (LegalSpending)
-        //TODO: добавить вкладку "итоговые затраты"     (TotalSpending)
         string name = "Pages/" + ((Button)sender).Name.Substring(6) + ".xaml";
         FrameContent.Source = new Uri(name, UriKind.Relative);
     }

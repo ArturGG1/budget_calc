@@ -1,11 +1,11 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace budget_calc;
-public partial class Housing : Page
+public partial class Food : Page
 {
     private BudgetUpdater budgetUpdater = ((MainWindow)Application.Current.MainWindow).budgetUpdater;
-    public Housing()
+    public Food()
     {
         InitializeComponent();
         budgetUpdater.UpdateTextBoxesFromBudget(this.Title, this);

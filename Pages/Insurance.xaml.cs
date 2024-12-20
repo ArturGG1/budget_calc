@@ -2,10 +2,10 @@
 using System.Windows.Controls;
 
 namespace budget_calc;
-public partial class Housing : Page
+public partial class Insurance : Page
 {
     private BudgetUpdater budgetUpdater = ((MainWindow)Application.Current.MainWindow).budgetUpdater;
-    public Housing()
+    public Insurance()
     {
         InitializeComponent();
         budgetUpdater.UpdateTextBoxesFromBudget(this.Title, this);

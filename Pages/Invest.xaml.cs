@@ -2,14 +2,16 @@
 using System.Windows.Controls;
 
 namespace budget_calc;
-public partial class Housing : Page
+public partial class Invest : Page
 {
     private BudgetUpdater budgetUpdater = ((MainWindow)Application.Current.MainWindow).budgetUpdater;
-    public Housing()
+    
+    public Invest()
     {
         InitializeComponent();
         budgetUpdater.UpdateTextBoxesFromBudget(this.Title, this);
     }
+    
     private void TextBox_OnTextChanged(object sender, TextChangedEventArgs e)
     {
         TextBox textBox = (TextBox)sender;
