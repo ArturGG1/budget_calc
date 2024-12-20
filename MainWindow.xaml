@@ -35,8 +35,8 @@
     </Window.Resources>
     <Grid Name="Grid1">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="700"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Orientation="Vertical">
             <Button Name="ButtonOverview" Content="Обзор" Margin="10,5,0,0" Click="Button_OnClick"/>
