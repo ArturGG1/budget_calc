@@ -19,8 +19,6 @@ public partial class MainWindow : Window
     }
     private void Button_OnClick(object sender, RoutedEventArgs e)
     {
-        //TODO: добавить вкладку "еда"                  (Food)
-        //TODO: добавить вкладку "инвестиции"           (Invest)
         //TODO: добавить вкладку "питомцы"              (Pets)
         //TODO: добавить вкладку "пожертвования"        (Gifts)
         //TODO: добавить вкладку "личная гигиена"       (Hygiene)
