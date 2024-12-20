@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.ComponentModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,10 +13,15 @@ using System.Windows.Shapes;
 namespace budget_calc;
 public partial class MainWindow : Window
 {
-    public BudgetUpdater budgetUpdater = new BudgetUpdater();
+    public BudgetUpdater budgetUpdater = new();
     public MainWindow()
     {
         InitializeComponent();
+    }
+    protected override void OnClosing(CancelEventArgs e)
+    {
+        budgetUpdater.SaveBudget();
+        base.OnClosing(e);
     }
     private void Button_OnClick(object sender, RoutedEventArgs e)
     {

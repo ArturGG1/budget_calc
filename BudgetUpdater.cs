@@ -1,9 +1,12 @@
+using System.IO;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace budget_calc;
 public class BudgetUpdater
 {
+    private string PathToBudget = "budget.json";
     private Dictionary<string, double> Budget;
     private Dictionary<string, int> PagesRowCount = new()
     {
@@ -21,7 +24,7 @@ public class BudgetUpdater
     };
     public BudgetUpdater()
     {
-        Budget = new Dictionary<string, double>();
+        LoadBudget();
     }
     private string UpdateTotal(string pageName)
     {
@@ -112,16 +115,32 @@ public class BudgetUpdater
             UpdateTextBoxFromBudget(pageName + "Actual" + i.ToString(), (TextBox)page.FindName("TextBoxActual" + i.ToString()));
         }
     }
+    public (double, double) GetTotalIncome()
+    {
+        if (Budget.Count == 0) return (0, 0);
+        if (!Budget.ContainsKey("PlannedIncome") || !Budget.ContainsKey("ActualIncome")) return (0, 0);
+        return (Budget["PlannedIncome"], Budget["ActualIncome"]);
+    }
     public (double, double) GetTotalSpending()
     {
         if (Budget.Count == 0) return (0, 0);
-        double PlannedTotal = 0;
-        double ActualTotal = 0;
+        double PlannedTotal = 0, ActualTotal = 0;
         foreach (KeyValuePair<string, double> kvp in Budget)
         {
+            if (kvp.Key.Contains("Income")) continue;
             if (kvp.Key.Contains("Planned")) PlannedTotal += kvp.Value;
             if (kvp.Key.Contains("Actual")) ActualTotal += kvp.Value;
         }
         return (PlannedTotal, ActualTotal);
+    }
+    public void SaveBudget()
+    {
+        string json = JsonSerializer.Serialize(Budget);
+        File.WriteAllText(PathToBudget, json);
+    }
+    public void LoadBudget()
+    {
+        if (!File.Exists(PathToBudget)) return;
+        Budget = JsonSerializer.Deserialize<Dictionary<string, double>>(File.ReadAllText(PathToBudget));
     }
 }
