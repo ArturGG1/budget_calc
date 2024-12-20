@@ -112,4 +112,16 @@ public class BudgetUpdater
             UpdateTextBoxFromBudget(pageName + "Actual" + i.ToString(), (TextBox)page.FindName("TextBoxActual" + i.ToString()));
         }
     }
+    public (double, double) GetTotalSpending()
+    {
+        if (Budget.Count == 0) return (0, 0);
+        double PlannedTotal = 0;
+        double ActualTotal = 0;
+        foreach (KeyValuePair<string, double> kvp in Budget)
+        {
+            if (kvp.Key.Contains("Planned")) PlannedTotal += kvp.Value;
+            if (kvp.Key.Contains("Actual")) ActualTotal += kvp.Value;
+        }
+        return (PlannedTotal, ActualTotal);
+    }
 }
