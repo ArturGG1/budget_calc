@@ -19,7 +19,6 @@ public partial class MainWindow : Window
     }
     private void Button_OnClick(object sender, RoutedEventArgs e)
     {
-        //TODO: добавить вкладку "юридические расходы"  (LegalSpending)
         //TODO: добавить вкладку "итоговые затраты"     (TotalSpending)
         string name = "Pages/" + ((Button)sender).Name.Substring(6) + ".xaml";
         FrameContent.Source = new Uri(name, UriKind.Relative);
