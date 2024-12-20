@@ -13,6 +13,7 @@ public class BudgetUpdater
         {"Credits",4},
         {"Insurance",4},
         {"Taxes",5},
+        {"Food", 4},
     };
     public BudgetUpdater()
     {
