@@ -35,8 +35,9 @@
     </Window.Resources>
     <Grid Name="Grid1">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" MinWidth="100" MaxWidth="200"></ColumnDefinition>
+            <ColumnDefinition Width="5"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="700"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Orientation="Vertical">
             <Button Name="ButtonOverview" Content="Обзор" Margin="10,5,0,0" Click="Button_OnClick"/>
@@ -54,6 +55,7 @@
             <Button Name="ButtonLegalSpending" Content="Юр. расходы" Margin="10,5,0,0" Click="Button_OnClick"/>
             <Button Name="ButtonTotalSpending" Content="Общие затраты" Margin="10,5,0,0" Click="Button_OnClick"/>
         </StackPanel>
-        <Frame Name="FrameContent" Grid.Column="1" Source="Pages/Overview.xaml" NavigationUIVisibility="Hidden"/>
+        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Left"/>
+        <Frame Name="FrameContent" Grid.Column="2" Source="Pages/Overview.xaml" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
