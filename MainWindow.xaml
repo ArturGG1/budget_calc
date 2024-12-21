@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:budget_calc"
         mc:Ignorable="d"
-        Title="Личный бюджет на месяц" Height="600" Width="800"
+        Title="Личный бюджет на месяц" Height="900" Width="1200"
         Foreground="White" Background="#2E2E2E"
         SizeChanged="MainWindow_OnSizeChanged">
     <Window.Resources>
@@ -39,23 +39,25 @@
             <ColumnDefinition Width="5"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Orientation="Vertical">
-            <Button Name="ButtonOverview" Content="Обзор" Margin="10,5,0,0" Click="Button_OnClick"/>
-            <Button Name="ButtonIncome" Content="Доход" Margin="10,5,0,0" Click="Button_OnClick"/>
-            <Button Name="ButtonHousing" Content="Жильё" Margin="10,5,0,0" Click="Button_OnClick"/>
-            <Button Name="ButtonEntertainment" Content="Развлечения" Margin="10,5,0,0" Click="Button_OnClick"/>
-            <Button Name="ButtonTransport" Content="Транспорт" Margin="10,5,0,0" Click="Button_OnClick"/>
-            <Button Name="ButtonCredits" Content="Кредиты" Margin="10,5,0,0" Click="Button_OnClick"/>
-            <Button Name="ButtonInsurance" Content="Страхование" Margin="10,5,0,0" Click="Button_OnClick"/>
-            <Button Name="ButtonTaxes" Content="Налоги" Margin="10,5,0,0" Click="Button_OnClick"/>
-            <Button Name="ButtonFood" Content="Еда" Margin="10,5,0,0" Click="Button_OnClick"/>
-            <Button Name="ButtonInvest" Content="Инвестиции" Margin="10,5,0,0" Click="Button_OnClick"/>
-            <Button Name="ButtonPets" Content="Питомцы" Margin="10,5,0,0" Click="Button_OnClick"/>
-            <Button Name="ButtonHygiene" Content="Гигиена" Margin="10,5,0,0" Click="Button_OnClick"/>
-            <Button Name="ButtonLegalSpending" Content="Юр. расходы" Margin="10,5,0,0" Click="Button_OnClick"/>
-            <Button Name="ButtonTotalSpending" Content="Общие затраты" Margin="10,5,0,0" Click="Button_OnClick"/>
-        </StackPanel>
+        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
+            <StackPanel Orientation="Vertical">
+                <Button Name="ButtonOverview" Content="Обзор" Margin="10,5,0,0" Click="Button_OnClick"/>
+                <Button Name="ButtonIncome" Content="Доход" Margin="10,5,0,0" Click="Button_OnClick"/>
+                <Button Name="ButtonHousing" Content="Жильё" Margin="10,5,0,0" Click="Button_OnClick"/>
+                <Button Name="ButtonEntertainment" Content="Развлечения" Margin="10,5,0,0" Click="Button_OnClick"/>
+                <Button Name="ButtonTransport" Content="Транспорт" Margin="10,5,0,0" Click="Button_OnClick"/>
+                <Button Name="ButtonCredits" Content="Кредиты" Margin="10,5,0,0" Click="Button_OnClick"/>
+                <Button Name="ButtonInsurance" Content="Страхование" Margin="10,5,0,0" Click="Button_OnClick"/>
+                <Button Name="ButtonTaxes" Content="Налоги" Margin="10,5,0,0" Click="Button_OnClick"/>
+                <Button Name="ButtonFood" Content="Еда" Margin="10,5,0,0" Click="Button_OnClick"/>
+                <Button Name="ButtonInvest" Content="Инвестиции" Margin="10,5,0,0" Click="Button_OnClick"/>
+                <Button Name="ButtonPets" Content="Питомцы" Margin="10,5,0,0" Click="Button_OnClick"/>
+                <Button Name="ButtonHygiene" Content="Гигиена" Margin="10,5,0,0" Click="Button_OnClick"/>
+                <Button Name="ButtonLegalSpending" Content="Юр. расходы" Margin="10,5,0,0" Click="Button_OnClick"/>
+                <Button Name="ButtonTotalSpending" Content="Общие затраты" Margin="10,5,0,0" Click="Button_OnClick"/>
+            </StackPanel>
+        </ScrollViewer>
         <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Left"/>
-        <Frame Name="FrameContent" Grid.Column="2" Source="Pages/Overview.xaml" NavigationUIVisibility="Hidden"/>
+        <Frame Name="FrameContent" Grid.Column="2" Source="Pages/Overview.xaml" NavigationUIVisibility="Hidden" VerticalAlignment="Top"/>
     </Grid>
 </Window>
