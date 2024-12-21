@@ -4,11 +4,14 @@ using System.Windows.Controls;
 namespace budget_calc;
 public partial class Housing : Page
 {
+    private MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
     private BudgetUpdater budgetUpdater = ((MainWindow)Application.Current.MainWindow).budgetUpdater;
     public Housing()
     {
         InitializeComponent();
         budgetUpdater.UpdateTextBoxesFromBudget(this.Title, this);
+        this.Width = mainWindow.ActualWidth * 0.75;
+        this.Height = mainWindow.ActualHeight * (2.0 / 3.0);
     }
     private void TextBox_OnTextChanged(object sender, TextChangedEventArgs e)
     {

@@ -6,6 +6,7 @@ namespace budget_calc.Pages;
 
 public partial class TotalSpending : Page
 {
+    private MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
     private BudgetUpdater budgetUpdater = ((MainWindow)Application.Current.MainWindow).budgetUpdater;
     public TotalSpending()
     {
@@ -17,5 +18,7 @@ public partial class TotalSpending : Page
         ActualSpending.Text = Actual.ToString() + " руб.";
         Difference.Text = (Planned - Actual).ToString() + " руб.";
         if (Planned - Actual < 0) Difference.Foreground = Brushes.Red;
+        this.Width = mainWindow.ActualWidth * 0.75;
+        this.Height = mainWindow.ActualHeight * (2.0 / 3.0);
     }
 }

@@ -31,6 +31,8 @@ public partial class MainWindow : Window
     private void MainWindow_OnSizeChanged(object sender, SizeChangedEventArgs e)
     {
         //TODO: разобраться с динамическими размерами
-        //Grid1.ColumnDefinitions[0].Width = new GridLength(this.ActualWidth / 8);
+        Grid1.ColumnDefinitions[0].MaxWidth = e.NewSize.Width * 0.5;
+        (FrameContent.Content as Page).Width = e.NewSize.Width * 0.75;
+        (FrameContent.Content as Page).Height = e.NewSize.Height * (2.0 / 3);
     }
 }

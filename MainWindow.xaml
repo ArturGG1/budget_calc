@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:budget_calc"
         mc:Ignorable="d"
-        Title="Личный бюджет на месяц" Height="600" Width="800" MinHeight="600" MinWidth="800"
+        Title="Личный бюджет на месяц" Height="600" Width="800"
         Foreground="White" Background="#2E2E2E"
         SizeChanged="MainWindow_OnSizeChanged">
     <Window.Resources>
@@ -35,7 +35,7 @@
     </Window.Resources>
     <Grid Name="Grid1">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100" MinWidth="100" MaxWidth="200"></ColumnDefinition>
+            <ColumnDefinition Width="100" MinWidth="100" MaxWidth="400"></ColumnDefinition>
             <ColumnDefinition Width="5"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>

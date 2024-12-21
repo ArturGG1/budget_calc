@@ -6,6 +6,7 @@ namespace budget_calc;
 
 public partial class Overview : Page
 {
+    private MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
     private BudgetUpdater budgetUpdater = ((MainWindow)Application.Current.MainWindow).budgetUpdater;
     public Overview()
     {
@@ -19,5 +20,7 @@ public partial class Overview : Page
         if ((double.Parse(ActualLeft.Text) - double.Parse(PlannedLeft.Text)) < 0) Difference.Foreground = Brushes.Red;
         PlannedLeft.Text = PlannedLeft.Text + " руб.";
         ActualLeft.Text = ActualLeft.Text + " руб.";
+        this.Width = mainWindow.ActualWidth * 0.75;
+        this.Height = mainWindow.ActualHeight * (2.0 / 3.0);
     }
 }
