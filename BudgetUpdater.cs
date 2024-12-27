@@ -22,10 +22,7 @@ public class BudgetUpdater
         {"Hygiene", 6},
         {"LegalSpending", 4}
     };
-    public BudgetUpdater()
-    {
-        LoadBudget();
-    }
+    public BudgetUpdater() => LoadBudget();
     private string UpdateTotal(string pageName)
     {
         if (!(PagesRowCount.ContainsKey(pageName))) return "0 руб.";
@@ -142,5 +139,16 @@ public class BudgetUpdater
         Budget = new Dictionary<string, double>();
         if (!File.Exists(PathToBudget)) return;
         Budget = JsonSerializer.Deserialize<Dictionary<string, double>>(File.ReadAllText(PathToBudget));
+    }
+    public (List<double>, List<double>) GetValues(string pageName)
+    {
+        List<double> PlannedValues = new List<double>();
+        List<double> ActualValues = new List<double>();
+        for (int i = 1; i <= PagesRowCount[pageName]; i++)
+        {
+            if (Budget.ContainsKey(pageName + "Planned" + i.ToString())) PlannedValues.Add(Budget[pageName + "Planned" + i.ToString()]);
+            if (Budget.ContainsKey(pageName + "Actual" + i.ToString())) ActualValues.Add(Budget[pageName + "Actual" + i.ToString()]);
+        }
+        return (PlannedValues, ActualValues);
     }
 }

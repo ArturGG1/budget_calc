@@ -5,16 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:budget_calc"
       mc:Ignorable="d"
-      Title="Overview" Height="400" Width="600"
+      Title="Overview" Height="800" Width="900"
       Foreground="White" Background="#2E2E2E">
     <Page.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Background" Value="#2E2E2E"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="36"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="TextAlignment" Value="Center"/>
             <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
         </Style>
     </Page.Resources>
     <Grid>
@@ -24,14 +25,14 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="350"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Плановый остаток:" TextAlignment="Left" VerticalAlignment="Center" FontSize="30" Margin="10,0,0,0"/>
-        <TextBlock Grid.Row="0" Grid.Column="1" Name="PlannedLeft" Text="0.00 руб." TextAlignment="Left" VerticalAlignment="Center" FontSize="30" Margin="10,0,0,0"/>
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Фактический остаток:" TextAlignment="Left" VerticalAlignment="Center" FontSize="30" Margin="10,0,0,0"/>
-        <TextBlock Grid.Row="1" Grid.Column="1" Name="ActualLeft" Text="0.00 руб." TextAlignment="Left" VerticalAlignment="Center" FontSize="30" Margin="10,0,0,0"/>
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="Разница:" TextAlignment="Left" VerticalAlignment="Center" FontSize="30" Margin="10,0,0,0"/>
-        <TextBlock Grid.Row="2" Grid.Column="1" Name="Difference" Text="0.00 руб." TextAlignment="Left" VerticalAlignment="Center" FontSize="30" Margin="10,0,0,0"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Плановый остаток:"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Name="PlannedLeft" Text="0.00 руб."/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Фактический остаток:"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Name="ActualLeft" Text="0.00 руб."/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Разница:"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Name="Difference" Text="0.00 руб."/>
     </Grid>
 </Page>

@@ -58,6 +58,8 @@
             </StackPanel>
         </ScrollViewer>
         <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Left"/>
-        <Frame Name="FrameContent" Grid.Column="2" Source="Pages/Overview.xaml" NavigationUIVisibility="Hidden" VerticalAlignment="Top"/>
+        <Viewbox Grid.Column="2">
+            <Frame Name="FrameContent" Source="Pages/Overview.xaml" NavigationUIVisibility="Hidden" VerticalAlignment="Top"/>
+        </Viewbox>
     </Grid>
 </Window>

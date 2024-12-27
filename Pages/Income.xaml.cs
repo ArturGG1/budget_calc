@@ -12,12 +12,15 @@ public partial class Income : Page
         InitializeComponent();
         budgetUpdater.UpdateIncomeFromBudget(TextBoxPlannedIncome);
         budgetUpdater.UpdateIncomeFromBudget(TextBoxActualIncome);
-        this.Width = mainWindow.ActualWidth * 0.75;
-        this.Height = mainWindow.ActualHeight * (2.0 / 3.0);
     }
     private void TextBoxIncome_OnTextChanged(object sender, TextChangedEventArgs e)
     {
         TextBox textBox = sender as TextBox;
         budgetUpdater.UpdateIncome(textBox);
+    }
+    private void Income_OnSizeChanged(object sender, SizeChangedEventArgs e)
+    {
+        TextBoxPlannedIncome.Width = e.NewSize.Width * (1.0 / 2.0) - 50;
+        TextBoxActualIncome.Width = e.NewSize.Width * (1.0 / 2.0) - 50;
     }
 }

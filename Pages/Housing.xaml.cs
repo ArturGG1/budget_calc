@@ -10,8 +10,6 @@ public partial class Housing : Page
     {
         InitializeComponent();
         budgetUpdater.UpdateTextBoxesFromBudget(this.Title, this);
-        this.Width = mainWindow.ActualWidth * 0.75;
-        this.Height = mainWindow.ActualHeight * (8.0 / 9.0);
     }
     private void TextBox_OnTextChanged(object sender, TextChangedEventArgs e)
     {
