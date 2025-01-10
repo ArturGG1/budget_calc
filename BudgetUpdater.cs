@@ -32,7 +32,7 @@ public class BudgetUpdater
             if (!Budget.ContainsKey(pageName + "Planned" + i.ToString()) || !Budget.ContainsKey(pageName + "Actual" + i.ToString())) continue;
             total += (Budget[pageName + "Planned" + i.ToString()] - Budget[pageName + "Actual" + i.ToString()]);
         }
-        return (total.ToString() + " руб.");
+        return total.ToString() + " руб.";
     }
     private void UpdateTextBoxFromBudget(string key, TextBox textBox)
     {
@@ -140,7 +140,7 @@ public class BudgetUpdater
         if (!File.Exists(PathToBudget)) return;
         Budget = JsonSerializer.Deserialize<Dictionary<string, double>>(File.ReadAllText(PathToBudget));
     }
-    public (List<double>, List<double>) GetValues(string pageName)
+    public void UpdateChart(string pageName, UserControl chartControl)
     {
         List<double> PlannedValues = new List<double>();
         List<double> ActualValues = new List<double>();
@@ -149,6 +149,6 @@ public class BudgetUpdater
             if (Budget.ContainsKey(pageName + "Planned" + i.ToString())) PlannedValues.Add(Budget[pageName + "Planned" + i.ToString()]);
             if (Budget.ContainsKey(pageName + "Actual" + i.ToString())) ActualValues.Add(Budget[pageName + "Actual" + i.ToString()]);
         }
-        return (PlannedValues, ActualValues);
+        chartControl.DataContext = new ChartHandler(PlannedValues, ActualValues);
     }
 }

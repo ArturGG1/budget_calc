@@ -118,12 +118,12 @@
             </Grid>
         </ScrollViewer>
         <!-- нижний ряд -->
-        <!-- <UserControl Grid.Row="2" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2"> -->
-        <!--     <UserControl.DataContext> -->
-        <!--         <local:ChartHandler/> -->
-        <!--     </UserControl.DataContext> -->
-        <!--     <lvc:CartesianChart Name="Chart" Series="{Binding Series}"/> -->
-        <!-- </UserControl> -->
+        <UserControl Name="UserControl" Grid.Row="2" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <UserControl.DataContext>
+                <local:ChartHandler/>
+            </UserControl.DataContext>
+            <lvc:CartesianChart Name="Chart" Series="{Binding Series}"/>
+        </UserControl>
         <TextBlock Grid.Row="3" Grid.Column="2" Text="Промежуточный итог:" FontSize="24" HorizontalAlignment="Right" Margin="0,0,20,0"/>
         <TextBlock Grid.Row="3" Grid.Column="3" Name="TextBlockTotal" Text="0 руб." FontSize="28" HorizontalAlignment="Center"/>
     </Grid>
