@@ -10,7 +10,6 @@ public partial class Housing : Page
     {
         InitializeComponent();
         budgetUpdater.UpdateTextBoxesFromBudget(this.Title, this);
-        budgetUpdater.UpdateChart(this.Title, UserControl);
     }
     private void TextBox_OnTextChanged(object sender, TextChangedEventArgs e)
     {
