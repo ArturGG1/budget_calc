@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace budget_calc.Pages;
+namespace budget_calc;
 
 public partial class TotalSpending : Page
 {
@@ -13,9 +13,9 @@ public partial class TotalSpending : Page
         double Planned = 0;
         double Actual = 0;
         (Planned, Actual) = budgetUpdater.GetTotalSpending();
+        if (Planned - Actual < 0) Difference.Foreground = Brushes.Red;
         PlannedSpending.Text = Planned.ToString() + " руб.";
         ActualSpending.Text = Actual.ToString() + " руб.";
         Difference.Text = (Planned - Actual).ToString() + " руб.";
-        if (Planned - Actual < 0) Difference.Foreground = Brushes.Red;
     }
 }

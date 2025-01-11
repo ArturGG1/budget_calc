@@ -1,5 +1,6 @@
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 
 namespace budget_calc;
 public partial class Transport : Page
@@ -16,5 +17,6 @@ public partial class Transport : Page
         string key = this.Title + textBox.Name.Substring(7);
         budgetUpdater.UpdateBudget(key, textBox);
         TextBlockTotal.Text = budgetUpdater.UpdateTextBlocks(this.Title, this);
+        budgetUpdater.UpdateChart(this.Title, UserControl);
     }
 }

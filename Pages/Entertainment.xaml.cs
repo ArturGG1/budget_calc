@@ -16,5 +16,6 @@ public partial class Entertainment : Page
         string key = this.Title + textBox.Name.Substring(7);
         budgetUpdater.UpdateBudget(key, textBox);
         TextBlockTotal.Text = budgetUpdater.UpdateTextBlocks(this.Title, this);
+        budgetUpdater.UpdateChart(this.Title, UserControl);
     }
 }

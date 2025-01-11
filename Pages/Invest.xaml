@@ -4,14 +4,16 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:budget_calc"
+      xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
       mc:Ignorable="d"
-      Title="Invest" Height="400" Width="600"
+      Title="Invest" Height="800" Width="900"
       Foreground="White" Background="#2E2E2E">
+    <!-- стили элементов на странице -->
     <Page.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Background" Value="#2E2E2E"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontSize" Value="24"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="TextAlignment" Value="Center"/>
             <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
@@ -19,52 +21,78 @@
         <Style TargetType="TextBox">
             <Setter Property="Background" Value="#3C3C3C"/>
             <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="5,14,5,0"/>
         </Style>
         <Style TargetType="StackPanel">
             <Setter Property="Orientation" Value="Vertical"/>
         </Style>
     </Page.Resources>
+    <!-- сами элементы -->
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
-        
-        <TextBlock Grid.Row="0" Grid.Column="1" Text="Запланированные затраты"/>
-        <TextBlock Grid.Row="0" Grid.Column="2" Text="Фактические затраты"/>
-        <TextBlock Grid.Row="0" Grid.Column="3" Text="Разница"/>
-        
-        <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="3">
-            <TextBlock Text="Пенсионный счёт"/>
-            <TextBlock Text="Инвест. счёт"/>
-            <TextBlock Text="Другое"/>
-        </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="3">
-            <TextBox Name="TextBoxPlanned1" Margin="5,5,5,0" TextChanged="TextBox_OnTextChanged"/>
-            <TextBox Name="TextBoxPlanned2" Margin="5,5,5,0" TextChanged="TextBox_OnTextChanged"/>
-            <TextBox Name="TextBoxPlanned3" Margin="5,5,5,0" TextChanged="TextBox_OnTextChanged"/>
-        </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="2" Grid.RowSpan="3">
-            <TextBox Name="TextBoxActual1" Margin="5,5,5,0" TextChanged="TextBox_OnTextChanged"/>
-            <TextBox Name="TextBoxActual2" Margin="5,5,5,0" TextChanged="TextBox_OnTextChanged"/>
-            <TextBox Name="TextBoxActual3" Margin="5,5,5,0" TextChanged="TextBox_OnTextChanged"/>
-        </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="3" Grid.RowSpan="3">
-            <TextBlock Name="TextBlockLeft1" Text="0 руб."/>
-            <TextBlock Name="TextBlockLeft2" Text="0 руб."/>
-            <TextBlock Name="TextBlockLeft3" Text="0 руб."/>
-        </StackPanel>
-        
-        <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Text="Промежуточный итог:" FontSize="20" HorizontalAlignment="Right" Margin="0,0,20,0"/>
-        <TextBlock Name="TextBlockTotal" Grid.Row="4" Grid.Column="3" Text="0 руб." FontSize="20"/>
+        <!-- верхний ряд -->
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Запланированные затраты" FontWeight="Bold"/>
+        <TextBlock Grid.Row="0" Grid.Column="2" Text="Фактические затраты" FontWeight="Bold"/>
+        <TextBlock Grid.Row="0" Grid.Column="3" Text="Разница" FontWeight="Bold"/>
+        <!-- средний ряд -->
+        <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="120"/>
+                </Grid.ColumnDefinitions>
+                <!-- левый столбец -->
+                <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="3">
+                    <TextBlock Text="Пенсионный счёт"/>
+                    <TextBlock Text="Инвест. счёт"/>
+                    <TextBlock Text="Другое"/>
+                </StackPanel>
+                <!-- второй столбец -->
+                <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="3">
+                    <TextBox Name="TextBoxPlanned1" TextChanged="TextBox_OnTextChanged"/>
+                    <TextBox Name="TextBoxPlanned2" TextChanged="TextBox_OnTextChanged"/>
+                    <TextBox Name="TextBoxPlanned3" TextChanged="TextBox_OnTextChanged"/>
+                </StackPanel>
+                <!-- третий столбец -->
+                <StackPanel Grid.Row="0" Grid.Column="2" Grid.RowSpan="3">
+                    <TextBox Name="TextBoxActual1" TextChanged="TextBox_OnTextChanged"/>
+                    <TextBox Name="TextBoxActual2" TextChanged="TextBox_OnTextChanged"/>
+                    <TextBox Name="TextBoxActual3" TextChanged="TextBox_OnTextChanged"/>
+                </StackPanel>
+                <!-- правый столбец -->
+                <StackPanel Grid.Row="0" Grid.Column="3" Grid.RowSpan="3">
+                    <TextBlock Name="TextBlockLeft1" Text="0 руб."/>
+                    <TextBlock Name="TextBlockLeft2" Text="0 руб."/>
+                    <TextBlock Name="TextBlockLeft3" Text="0 руб."/>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+        <!-- нижний ряд -->
+        <UserControl Name="UserControl" Grid.Row="2" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <UserControl.DataContext>
+                <local:ChartHandler/>
+            </UserControl.DataContext>
+            <lvc:CartesianChart Name="Chart" Series="{Binding Series}"/>
+        </UserControl>
+        <TextBlock Grid.Row="3" Grid.Column="2" Text="Промежуточный итог:" FontSize="24" HorizontalAlignment="Right" Margin="0,0,20,0"/>
+        <TextBlock Grid.Row="3" Grid.Column="3" Name="TextBlockTotal" Text="0 руб." FontSize="28" HorizontalAlignment="Center"/>
     </Grid>
 </Page>

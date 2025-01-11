@@ -18,19 +18,29 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
+    // При закрытии программы: сначала сохранение бюджета, потом закрытие
     protected override void OnClosing(CancelEventArgs e)
     {
         budgetUpdater.SaveBudget();
         base.OnClosing(e);
     }
+    /*
+     * При нажатии на кнопку: переключение на выбранную страницу
+     * (При добавлении новых кнопок их название должно быть "Button" + название страницы,
+     * чтобы архитектура не сломалась)
+     */
     private void Button_OnClick(object sender, RoutedEventArgs e)
     {
         string name = "Pages/" + ((Button)sender).Name.Substring(6) + ".xaml";
         FrameContent.Source = new Uri(name, UriKind.Relative);
     }
+    // При изменении размеров окна: изменение размеров контента в FrameContent
     private void MainWindow_OnSizeChanged(object sender, SizeChangedEventArgs e)
     {
-        //TODO: разобраться с динамическими размерами
-        //Grid1.ColumnDefinitions[0].Width = new GridLength(this.ActualWidth / 8);
+        #region чёрная магия, не трогать!
+        Grid1.ColumnDefinitions[0].MaxWidth = e.NewSize.Width * 0.5;
+        (FrameContent.Content as Page).Width = e.NewSize.Width * 0.75;
+        (FrameContent.Content as Page).Height = e.NewSize.Height * (8.0 / 9);
+        #endregion
     }
 }
