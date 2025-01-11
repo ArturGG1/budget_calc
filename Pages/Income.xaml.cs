@@ -5,7 +5,6 @@ namespace budget_calc;
 
 public partial class Income : Page
 {
-    private MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
     private BudgetUpdater budgetUpdater = ((MainWindow)Application.Current.MainWindow).budgetUpdater;
     public Income()
     {
@@ -17,10 +16,5 @@ public partial class Income : Page
     {
         TextBox textBox = sender as TextBox;
         budgetUpdater.UpdateIncome(textBox);
-    }
-    private void Income_OnSizeChanged(object sender, SizeChangedEventArgs e)
-    {
-        TextBoxPlannedIncome.Width = e.NewSize.Width * (1.0 / 2.0) - 50;
-        TextBoxActualIncome.Width = e.NewSize.Width * (1.0 / 2.0) - 50;
     }
 }

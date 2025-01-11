@@ -6,7 +6,6 @@ namespace budget_calc;
 
 public partial class Overview : Page
 {
-    private MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
     private BudgetUpdater budgetUpdater = ((MainWindow)Application.Current.MainWindow).budgetUpdater;
     public Overview()
     {

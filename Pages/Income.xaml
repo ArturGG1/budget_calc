@@ -6,8 +6,7 @@
       xmlns:local="clr-namespace:budget_calc"
       mc:Ignorable="d"
       Title="Income" Height="800" Width="900"
-      Foreground="White" Background="#2E2E2E"
-      SizeChanged="Income_OnSizeChanged">
+      Foreground="White" Background="#2E2E2E">
     <Page.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Background" Value="#2E2E2E"/>
@@ -36,9 +35,9 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="Месячный доход" HorizontalAlignment="Center"/>
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Плановый:"/>
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="Фактический:"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="Месячный доход" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Плановый:" FontWeight="Bold"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Фактический:" FontWeight="Bold"/>
         <TextBox Name="TextBoxPlannedIncome" Grid.Row="1" Grid.Column="1" Width="400" TextChanged="TextBoxIncome_OnTextChanged"/>
         <TextBox Name="TextBoxActualIncome" Grid.Row="2" Grid.Column="1" Width="400" TextChanged="TextBoxIncome_OnTextChanged"/>
         <TextBlock Grid.Row="1" Grid.Column="2" Text="руб." Margin="10,0,0,0"/>

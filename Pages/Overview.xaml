@@ -28,11 +28,11 @@
             <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Плановый остаток:"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Плановый остаток:" FontWeight="Bold"/>
         <TextBlock Grid.Row="0" Grid.Column="1" Name="PlannedLeft" Text="0.00 руб."/>
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Фактический остаток:"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Фактический остаток:" FontWeight="Bold"/>
         <TextBlock Grid.Row="1" Grid.Column="1" Name="ActualLeft" Text="0.00 руб."/>
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="Разница:"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Разница:" FontWeight="Bold"/>
         <TextBlock Grid.Row="2" Grid.Column="1" Name="Difference" Text="0.00 руб."/>
     </Grid>
 </Page>
