@@ -8,6 +8,7 @@
       mc:Ignorable="d"
       Title="Entertainment" Height="800" Width="900"
       Foreground="White" Background="#2E2E2E">
+    <!-- стили элементов на странице -->
     <Page.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Background" Value="#2E2E2E"/>
@@ -26,6 +27,7 @@
             <Setter Property="Orientation" Value="Vertical"/>
         </Style>
     </Page.Resources>
+    <!-- сами элементы -->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -39,11 +41,11 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
-
+        <!-- верхний ряд -->
         <TextBlock Grid.Row="0" Grid.Column="1" Text="Запланированные затраты" FontWeight="Bold"/>
         <TextBlock Grid.Row="0" Grid.Column="2" Text="Фактические затраты" FontWeight="Bold"/>
         <TextBlock Grid.Row="0" Grid.Column="3" Text="Разница" FontWeight="Bold"/>
-
+        <!-- средний ряд -->
         <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" VerticalScrollBarVisibility="Auto">
             <Grid>
                 <Grid.RowDefinitions>
@@ -61,7 +63,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="120"/>
                 </Grid.ColumnDefinitions>
-
+                <!-- левый столбец -->
                 <StackPanel Grid.Row="0" Grid.RowSpan="7" Grid.Column="0">
                     <TextBlock Text="Видео"/>
                     <TextBlock Text="Музыка"/>
@@ -71,6 +73,7 @@
                     <TextBlock Text="Театр"/>
                     <TextBlock Text="Другое"/>
                 </StackPanel>
+                <!-- второй столбец -->
                 <StackPanel Grid.Row="0" Grid.RowSpan="7" Grid.Column="1">
                     <TextBox Name="TextBoxPlanned1" TextChanged="TextBox_OnTextChanged"/>
                     <TextBox Name="TextBoxPlanned2" TextChanged="TextBox_OnTextChanged"/>
@@ -80,6 +83,7 @@
                     <TextBox Name="TextBoxPlanned6" TextChanged="TextBox_OnTextChanged"/>
                     <TextBox Name="TextBoxPlanned7" TextChanged="TextBox_OnTextChanged"/>
                 </StackPanel>
+                <!-- третий столбец -->
                 <StackPanel Grid.Row="0" Grid.RowSpan="7" Grid.Column="2">
                     <TextBox Name="TextBoxActual1" TextChanged="TextBox_OnTextChanged"/>
                     <TextBox Name="TextBoxActual2" TextChanged="TextBox_OnTextChanged"/>
@@ -89,6 +93,7 @@
                     <TextBox Name="TextBoxActual6" TextChanged="TextBox_OnTextChanged"/>
                     <TextBox Name="TextBoxActual7" TextChanged="TextBox_OnTextChanged"/>
                 </StackPanel>
+                <!-- правый столбец -->
                 <StackPanel Grid.Row="0" Grid.RowSpan="7" Grid.Column="3">
                     <TextBlock Name="TextBlockLeft1" Text="0 руб."/>
                     <TextBlock Name="TextBlockLeft2" Text="0 руб."/>
@@ -100,14 +105,13 @@
                 </StackPanel>
             </Grid>
         </ScrollViewer>
-
+        <!-- нижний ряд -->
         <UserControl Name="UserControl" Grid.Row="2" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">
             <UserControl.DataContext>
                 <local:ChartHandler/>
             </UserControl.DataContext>
             <lvc:CartesianChart Name="Chart" Series="{Binding Series}"/>
         </UserControl>
-        
         <TextBlock Grid.Row="3" Grid.Column="2" Text="Промежуточный итог:" FontSize="24" HorizontalAlignment="Right" Margin="0,0,20,0"/>
         <TextBlock Grid.Row="3" Grid.Column="3" Name="TextBlockTotal" Text="0 руб." FontSize="28" HorizontalAlignment="Center"/>
     </Grid>

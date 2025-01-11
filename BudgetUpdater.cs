@@ -6,8 +6,11 @@ using System.Windows.Controls;
 namespace budget_calc;
 public class BudgetUpdater
 {
+    // Путь к файлу, где хранится бюджет
     private string PathToBudget = "budget.json";
+    // Сам бюджет
     private Dictionary<string, double> Budget;
+    // Кол-во рядов с данными на каждой странице
     private Dictionary<string, int> PagesRowCount = new()
     {
         {"Housing",10},
@@ -22,7 +25,13 @@ public class BudgetUpdater
         {"Hygiene", 6},
         {"LegalSpending", 4}
     };
+    // Конструктор просто загружает бюджет, поэтому его запись можно так сократить
     public BudgetUpdater() => LoadBudget();
+    /// <summary>
+    /// Обновляет промежуточный итог
+    /// </summary>
+    /// <param name="pageName">Название страницы</param>
+    /// <returns>Возвращает строку с промежуточным итогом</returns>
     private string UpdateTotal(string pageName)
     {
         if (!(PagesRowCount.ContainsKey(pageName))) return "0 руб.";
@@ -34,25 +43,23 @@ public class BudgetUpdater
         }
         return total.ToString() + " руб.";
     }
+    /// <summary>
+    /// Обновляет TextBox значением из бюджета
+    /// </summary>
+    /// <param name="key">Ключ для поиска в бюджете</param>
+    /// <param name="textBox">TextBox, который нужно обновить</param>
     private void UpdateTextBoxFromBudget(string key, TextBox textBox)
     {
         if (!Budget.ContainsKey(key)) return;
         textBox.Text = Budget[key].ToString();
     }
-    public void UpdateBudget(string key, TextBox textBox)
-    {
-        try
-        {
-            if (Budget.ContainsKey(key)) Budget[key] = double.Parse(textBox.Text);
-            else Budget.Add(key, double.Parse(textBox.Text));
-        }
-        catch (Exception)
-        {
-            MessageBox.Show("Введите число!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
-            textBox.Text = "0";
-        }
-    }
-    public void UpdateTextBlock(TextBox planned, TextBox actual, TextBlock result)
+    /// <summary>
+    /// Обновляет TextBlock по значениям из TextBox'ов
+    /// </summary>
+    /// <param name="planned">TextBox с запланированными затратами</param>
+    /// <param name="actual">TextBox с фактическими затратами</param>
+    /// <param name="result">TextBlock с разницей</param>
+    private void UpdateTextBlock(TextBox planned, TextBox actual, TextBlock result)
     {
         if (string.IsNullOrWhiteSpace(planned.Text) || string.IsNullOrWhiteSpace(actual.Text)) return;
         try
@@ -67,6 +74,28 @@ public class BudgetUpdater
             result.Text = "0 руб.";
         }
     }
+    /// <summary>
+    /// Обновляет бюджет значением из TextBox
+    /// </summary>
+    /// <param name="key">Ключ, по которому значение нужно обновить</param>
+    /// <param name="textBox">TextBox, из которого берётся значение</param>
+    public void UpdateBudget(string key, TextBox textBox)
+    {
+        try
+        {
+            if (Budget.ContainsKey(key)) Budget[key] = double.Parse(textBox.Text);
+            else Budget.Add(key, double.Parse(textBox.Text));
+        }
+        catch (Exception)
+        {
+            MessageBox.Show("Введите число!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+            textBox.Text = "0";
+        }
+    }
+    /// <summary>
+    /// Обновляет бюджет значением дохода из TextBox
+    /// </summary>
+    /// <param name="textBox">TextBox, из которого берётся значение</param>
     public void UpdateIncome(TextBox textBox)
     {
         double IncomeValue = 0;
@@ -78,7 +107,7 @@ public class BudgetUpdater
         {
             IncomeValue = double.Parse(textBox.Text);
         }
-        catch (Exception e)
+        catch (Exception)
         {
             MessageBox.Show("Введите число!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
             textBox.Text = "0";
@@ -87,23 +116,38 @@ public class BudgetUpdater
         if (Budget.ContainsKey(IncomeType)) Budget[IncomeType] = IncomeValue;
         else Budget.Add(IncomeType, IncomeValue);
     }
+    /// <summary>
+    /// Обновляет TextBox значением дохода из бюджета
+    /// </summary>
+    /// <param name="textBox">TextBox, который нужно обновить</param>
     public void UpdateIncomeFromBudget(TextBox textBox)
     {
         string IncomeType = textBox.Name.Substring(7);
         UpdateTextBoxFromBudget(IncomeType, textBox);
     }
+    /// <summary>
+    /// Обновляет все TextBlock'и на странице
+    /// </summary>
+    /// <param name="pageName">Название страницы</param>
+    /// <param name="page">Страница</param>
+    /// <returns></returns>
     public string UpdateTextBlocks(string pageName, Page page)
     {
-        for (int i = 1; i <= PagesRowCount[pageName]; i++)
+        try
         {
-            try
-            {
-                UpdateTextBlock((TextBox)page.FindName("TextBoxPlanned" + i.ToString()), (TextBox)page.FindName("TextBoxActual" + i.ToString()), (TextBlock)page.FindName("TextBlockLeft" + i.ToString()));
-            }
-            catch {}
+            for (int i = 1; i <= PagesRowCount[pageName]; i++)
+                UpdateTextBlock((TextBox)page.FindName("TextBoxPlanned" + i.ToString()),
+                                (TextBox)page.FindName("TextBoxActual" + i.ToString()),
+                                (TextBlock)page.FindName("TextBlockLeft" + i.ToString()));
         }
+        catch {}
         return UpdateTotal(pageName);
     }
+    /// <summary>
+    /// Обновляет все TextBox'ы на странице данными из бюджета
+    /// </summary>
+    /// <param name="pageName">Название страницы</param>
+    /// <param name="page">Страница</param>
     public void UpdateTextBoxesFromBudget(string pageName, Page page)
     {
         for (int i = 1; i <= PagesRowCount[pageName]; i++)
@@ -112,12 +156,19 @@ public class BudgetUpdater
             UpdateTextBoxFromBudget(pageName + "Actual" + i.ToString(), (TextBox)page.FindName("TextBoxActual" + i.ToString()));
         }
     }
+    /// <summary>
+    /// Получает доходы из бюджета
+    /// </summary>
+    /// <returns>Возвращает кортеж с запланированным и фактическим доходами</returns>
     public (double, double) GetTotalIncome()
     {
-        if (Budget.Count == 0) return (0, 0);
         if (!Budget.ContainsKey("PlannedIncome") || !Budget.ContainsKey("ActualIncome")) return (0, 0);
         return (Budget["PlannedIncome"], Budget["ActualIncome"]);
     }
+    /// <summary>
+    /// Получает сумму расходов из бюджета
+    /// </summary>
+    /// <returns>Возвращает кортеж с суммой запланированных и фактических расходов</returns>
     public (double, double) GetTotalSpending()
     {
         if (Budget.Count == 0) return (0, 0);
@@ -130,16 +181,27 @@ public class BudgetUpdater
         }
         return (PlannedTotal, ActualTotal);
     }
+    /// <summary>
+    /// Записывает бюджет в файл
+    /// </summary>
     public void SaveBudget()
     {
         File.WriteAllText(PathToBudget, JsonSerializer.Serialize(Budget));
     }
+    /// <summary>
+    /// Загружает бюджет из файла
+    /// </summary>
     public void LoadBudget()
     {
         Budget = new Dictionary<string, double>();
         if (!File.Exists(PathToBudget)) return;
         Budget = JsonSerializer.Deserialize<Dictionary<string, double>>(File.ReadAllText(PathToBudget));
     }
+    /// <summary>
+    /// Обновляет диаграмму данными из бюджета
+    /// </summary>
+    /// <param name="pageName">Название страницы</param>
+    /// <param name="chartControl">UserControl с диаграммой</param>
     public void UpdateChart(string pageName, UserControl chartControl)
     {
         List<double> PlannedValues = new List<double>();

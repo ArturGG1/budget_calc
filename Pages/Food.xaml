@@ -8,6 +8,7 @@
       mc:Ignorable="d"
       Title="Food" Height="800" Width="900"
       Foreground="White" Background="#2E2E2E">
+    <!-- стили элементов на странице -->
     <Page.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Background" Value="#2E2E2E"/>
@@ -26,6 +27,7 @@
             <Setter Property="Orientation" Value="Vertical"/>
         </Style>
     </Page.Resources>
+    <!-- сами элементы -->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -43,6 +45,7 @@
         <TextBlock Grid.Row="0" Grid.Column="1" Text="Запланированные затраты" FontWeight="Bold"/>
         <TextBlock Grid.Row="0" Grid.Column="2" Text="Фактические затраты" FontWeight="Bold"/>
         <TextBlock Grid.Row="0" Grid.Column="3" Text="Разница" FontWeight="Bold"/>
+        <!-- средний ряд -->
         <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" VerticalScrollBarVisibility="Auto">
             <Grid>
                 <Grid.RowDefinitions>

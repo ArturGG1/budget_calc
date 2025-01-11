@@ -39,6 +39,7 @@
             <ColumnDefinition Width="5"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <!-- Все кнопки -->
         <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
             <StackPanel Orientation="Vertical">
                 <Button Name="ButtonOverview" Content="Обзор" Margin="10,5,0,0" Click="Button_OnClick"/>
@@ -58,6 +59,8 @@
             </StackPanel>
         </ScrollViewer>
         <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Left"/>
+        <!-- Здесь страницы -->
+        <!-- (Viewbox нужен, чтобы не было проблем с изменением размеров окна) -->
         <Viewbox Grid.Column="2">
             <Frame Name="FrameContent" Source="Pages/Overview.xaml" NavigationUIVisibility="Hidden" VerticalAlignment="Top"/>
         </Viewbox>
