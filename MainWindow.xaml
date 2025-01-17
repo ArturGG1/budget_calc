@@ -15,10 +15,10 @@
             <Setter Property="BorderBrush" Value="#5A5A5A"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Padding" Value="10,5"/>
-            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Margin" Value="10,5,0,0"/>
             <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Nunito"/>
-            <Setter Property="FontSize" Value="11"/>
-            <Setter Property="Height" Value="25"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Height" Value="30"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -35,27 +35,27 @@
     </Window.Resources>
     <Grid Name="Grid1">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100" MinWidth="100" MaxWidth="400"></ColumnDefinition>
+            <ColumnDefinition Width="200" MinWidth="200" MaxWidth="400"></ColumnDefinition>
             <ColumnDefinition Width="5"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <!-- Все кнопки -->
         <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
             <StackPanel Orientation="Vertical">
-                <Button Name="ButtonOverview" Content="Обзор" Margin="10,5,0,0" Click="Button_OnClick"/>
-                <Button Name="ButtonIncome" Content="Доход" Margin="10,5,0,0" Click="Button_OnClick"/>
-                <Button Name="ButtonHousing" Content="Жильё" Margin="10,5,0,0" Click="Button_OnClick"/>
-                <Button Name="ButtonEntertainment" Content="Развлечения" Margin="10,5,0,0" Click="Button_OnClick"/>
-                <Button Name="ButtonTransport" Content="Транспорт" Margin="10,5,0,0" Click="Button_OnClick"/>
-                <Button Name="ButtonCredits" Content="Кредиты" Margin="10,5,0,0" Click="Button_OnClick"/>
-                <Button Name="ButtonInsurance" Content="Страхование" Margin="10,5,0,0" Click="Button_OnClick"/>
-                <Button Name="ButtonTaxes" Content="Налоги" Margin="10,5,0,0" Click="Button_OnClick"/>
-                <Button Name="ButtonFood" Content="Еда" Margin="10,5,0,0" Click="Button_OnClick"/>
-                <Button Name="ButtonInvest" Content="Инвестиции" Margin="10,5,0,0" Click="Button_OnClick"/>
-                <Button Name="ButtonPets" Content="Питомцы" Margin="10,5,0,0" Click="Button_OnClick"/>
-                <Button Name="ButtonHygiene" Content="Гигиена" Margin="10,5,0,0" Click="Button_OnClick"/>
-                <Button Name="ButtonLegalSpending" Content="Юр. расходы" Margin="10,5,0,0" Click="Button_OnClick"/>
-                <Button Name="ButtonTotalSpending" Content="Общие затраты" Margin="10,5,0,0" Click="Button_OnClick"/>
+                <Button Name="ButtonOverview" Content="Обзор" Click="Button_OnClick"/>
+                <Button Name="ButtonIncome" Content="Доход" Click="Button_OnClick"/>
+                <Button Name="ButtonHousing" Content="Жильё" Click="Button_OnClick"/>
+                <Button Name="ButtonEntertainment" Content="Развлечения" Click="Button_OnClick"/>
+                <Button Name="ButtonTransport" Content="Транспорт" Click="Button_OnClick"/>
+                <Button Name="ButtonCredits" Content="Кредиты" Click="Button_OnClick"/>
+                <Button Name="ButtonInsurance" Content="Страхование" Click="Button_OnClick"/>
+                <Button Name="ButtonTaxes" Content="Налоги" Click="Button_OnClick"/>
+                <Button Name="ButtonFood" Content="Еда" Click="Button_OnClick"/>
+                <Button Name="ButtonInvest" Content="Инвестиции" Click="Button_OnClick"/>
+                <Button Name="ButtonPets" Content="Питомцы" Click="Button_OnClick"/>
+                <Button Name="ButtonHygiene" Content="Гигиена" Click="Button_OnClick"/>
+                <Button Name="ButtonLegalSpending" Content="Юр. расходы" Click="Button_OnClick"/>
+                <Button Name="ButtonTotalSpending" Content="Общие затраты" Click="Button_OnClick"/>
             </StackPanel>
         </ScrollViewer>
         <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Left"/>

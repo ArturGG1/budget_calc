@@ -17,11 +17,13 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="TextAlignment" Value="Center"/>
             <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="Background" Value="#3C3C3C"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Margin" Value="5,14,5,0"/>
+            <EventSetter Event="TextChanged" Handler="TextBox_OnTextChanged"/>
         </Style>
         <Style TargetType="StackPanel">
             <Setter Property="Orientation" Value="Vertical"/>
@@ -39,7 +41,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.75*"/>
         </Grid.ColumnDefinitions>
         <!-- верхний ряд -->
         <TextBlock Grid.Row="0" Grid.Column="1" Text="Запланированные затраты" FontWeight="Bold"/>
@@ -60,7 +62,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="0.75*"/>
                 </Grid.ColumnDefinitions>
                 <!-- левый столбец -->
                 <StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="6">
@@ -73,21 +75,21 @@
                 </StackPanel>
                 <!-- второй столбец -->
                 <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="6">
-                    <TextBox Name="TextBoxPlanned1" TextChanged="TextBox_OnTextChanged"/>
-                    <TextBox Name="TextBoxPlanned2" TextChanged="TextBox_OnTextChanged"/>
-                    <TextBox Name="TextBoxPlanned3" TextChanged="TextBox_OnTextChanged"/>
-                    <TextBox Name="TextBoxPlanned4" TextChanged="TextBox_OnTextChanged"/>
-                    <TextBox Name="TextBoxPlanned5" TextChanged="TextBox_OnTextChanged"/>
-                    <TextBox Name="TextBoxPlanned6" TextChanged="TextBox_OnTextChanged"/>
+                    <TextBox Name="TextBoxPlanned1"/>
+                    <TextBox Name="TextBoxPlanned2"/>
+                    <TextBox Name="TextBoxPlanned3"/>
+                    <TextBox Name="TextBoxPlanned4"/>
+                    <TextBox Name="TextBoxPlanned5"/>
+                    <TextBox Name="TextBoxPlanned6"/>
                 </StackPanel>
                 <!-- третий столбец -->
                 <StackPanel Grid.Row="0" Grid.Column="2" Grid.RowSpan="6">
-                    <TextBox Name="TextBoxActual1" TextChanged="TextBox_OnTextChanged"/>
-                    <TextBox Name="TextBoxActual2" TextChanged="TextBox_OnTextChanged"/>
-                    <TextBox Name="TextBoxActual3" TextChanged="TextBox_OnTextChanged"/>
-                    <TextBox Name="TextBoxActual4" TextChanged="TextBox_OnTextChanged"/>
-                    <TextBox Name="TextBoxActual5" TextChanged="TextBox_OnTextChanged"/>
-                    <TextBox Name="TextBoxActual6" TextChanged="TextBox_OnTextChanged"/>
+                    <TextBox Name="TextBoxActual1"/>
+                    <TextBox Name="TextBoxActual2"/>
+                    <TextBox Name="TextBoxActual3"/>
+                    <TextBox Name="TextBoxActual4"/>
+                    <TextBox Name="TextBoxActual5"/>
+                    <TextBox Name="TextBoxActual6"/>
                 </StackPanel>
                 <!-- правый столбец -->
                 <StackPanel Grid.Row="0" Grid.Column="3" Grid.RowSpan="6">

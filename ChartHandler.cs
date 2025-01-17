@@ -29,12 +29,14 @@ public partial class ChartHandler
         {
             new ColumnSeries<ObservablePoint>
             {
+                Name = "Запланировано: ",
                 Values = PlannedValues,
                 DataPadding = new(0, 1),
                 Fill = new SolidColorPaint(SKColors.CornflowerBlue)
             },
             new ColumnSeries<ObservablePoint>
             {
+                Name = "Фактически: ",
                 Values = ActualValues,
                 DataPadding = new LvcPoint(0, 1),
                 Fill = new SolidColorPaint(SKColors.IndianRed)
