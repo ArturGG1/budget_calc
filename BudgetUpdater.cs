@@ -159,27 +159,27 @@ public class BudgetUpdater
     /// <summary>
     /// Получает доходы из бюджета
     /// </summary>
-    /// <returns>Возвращает кортеж с запланированным и фактическим доходами</returns>
-    public (double, double) GetTotalIncome()
+    /// <returns>Возвращает массив с запланированным и фактическим доходами</returns>
+    public double[] GetTotalIncome()
     {
-        if (!Budget.ContainsKey("PlannedIncome") || !Budget.ContainsKey("ActualIncome")) return (0, 0);
-        return (Budget["PlannedIncome"], Budget["ActualIncome"]);
+        if (!Budget.ContainsKey("PlannedIncome") || !Budget.ContainsKey("ActualIncome")) return new double[2];
+        return new double[] { Budget["PlannedIncome"], Budget["ActualIncome"] };
     }
     /// <summary>
     /// Получает сумму расходов из бюджета
     /// </summary>
-    /// <returns>Возвращает кортеж с суммой запланированных и фактических расходов</returns>
-    public (double, double) GetTotalSpending()
+    /// <returns>Возвращает массив с суммой запланированных и фактических расходов</returns>
+    public double[] GetTotalSpending()
     {
-        if (Budget.Count == 0) return (0, 0);
-        double PlannedTotal = 0, ActualTotal = 0;
+        if (Budget.Count == 0) return new double[2];
+        var Total  = new double[2]; 
         foreach (KeyValuePair<string, double> kvp in Budget)
         {
             if (kvp.Key.Contains("Income")) continue;
-            if (kvp.Key.Contains("Planned")) PlannedTotal += kvp.Value;
-            if (kvp.Key.Contains("Actual")) ActualTotal += kvp.Value;
+            if (kvp.Key.Contains("Planned")) Total[0] += kvp.Value;
+            if (kvp.Key.Contains("Actual")) Total[1] += kvp.Value;
         }
-        return (PlannedTotal, ActualTotal);
+        return Total;
     }
     /// <summary>
     /// Записывает бюджет в файл

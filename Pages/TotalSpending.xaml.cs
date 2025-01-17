@@ -10,9 +10,9 @@ public partial class TotalSpending : Page
     public TotalSpending()
     {
         InitializeComponent();
-        double Planned = 0;
-        double Actual = 0;
-        (Planned, Actual) = budgetUpdater.GetTotalSpending();
+        double[] Total = budgetUpdater.GetTotalSpending();
+        double Planned = Total[0];
+        double Actual = Total[1];
         if (Planned - Actual < 0) Difference.Foreground = Brushes.Red;
         PlannedSpending.Text = Planned.ToString() + " руб.";
         ActualSpending.Text = Actual.ToString() + " руб.";

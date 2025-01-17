@@ -31,31 +31,32 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <EventSetter Event="Click" Handler="Button_OnClick"/>
         </Style>
     </Window.Resources>
     <Grid Name="Grid1">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" MinWidth="200" MaxWidth="400"></ColumnDefinition>
-            <ColumnDefinition Width="5"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="200" MinWidth="200" MaxWidth="400"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <!-- Все кнопки -->
         <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
             <StackPanel Orientation="Vertical">
-                <Button Name="ButtonOverview" Content="Обзор" Click="Button_OnClick"/>
-                <Button Name="ButtonIncome" Content="Доход" Click="Button_OnClick"/>
-                <Button Name="ButtonHousing" Content="Жильё" Click="Button_OnClick"/>
-                <Button Name="ButtonEntertainment" Content="Развлечения" Click="Button_OnClick"/>
-                <Button Name="ButtonTransport" Content="Транспорт" Click="Button_OnClick"/>
-                <Button Name="ButtonCredits" Content="Кредиты" Click="Button_OnClick"/>
-                <Button Name="ButtonInsurance" Content="Страхование" Click="Button_OnClick"/>
-                <Button Name="ButtonTaxes" Content="Налоги" Click="Button_OnClick"/>
-                <Button Name="ButtonFood" Content="Еда" Click="Button_OnClick"/>
-                <Button Name="ButtonInvest" Content="Инвестиции" Click="Button_OnClick"/>
-                <Button Name="ButtonPets" Content="Питомцы" Click="Button_OnClick"/>
-                <Button Name="ButtonHygiene" Content="Гигиена" Click="Button_OnClick"/>
-                <Button Name="ButtonLegalSpending" Content="Юр. расходы" Click="Button_OnClick"/>
-                <Button Name="ButtonTotalSpending" Content="Общие затраты" Click="Button_OnClick"/>
+                <Button Name="ButtonOverview" Content="Обзор"/>
+                <Button Name="ButtonIncome" Content="Доход"/>
+                <Button Name="ButtonHousing" Content="Жильё"/>
+                <Button Name="ButtonEntertainment" Content="Развлечения"/>
+                <Button Name="ButtonTransport" Content="Транспорт"/>
+                <Button Name="ButtonCredits" Content="Кредиты"/>
+                <Button Name="ButtonInsurance" Content="Страхование"/>
+                <Button Name="ButtonTaxes" Content="Налоги"/>
+                <Button Name="ButtonFood" Content="Еда"/>
+                <Button Name="ButtonInvest" Content="Инвестиции"/>
+                <Button Name="ButtonPets" Content="Питомцы"/>
+                <Button Name="ButtonHygiene" Content="Гигиена"/>
+                <Button Name="ButtonLegalSpending" Content="Юр. расходы"/>
+                <Button Name="ButtonTotalSpending" Content="Общие затраты"/>
             </StackPanel>
         </ScrollViewer>
         <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Left"/>

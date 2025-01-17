@@ -10,9 +10,9 @@ public partial class Overview : Page
     public Overview()
     {
         InitializeComponent();
-        double PlannedIncome = 0, ActualIncome = 0, PlannedSpending = 0, ActualSpending = 0;
-        (PlannedIncome, ActualIncome) = budgetUpdater.GetTotalIncome();
-        (PlannedSpending, ActualSpending) = budgetUpdater.GetTotalSpending();
+        double[] Income = budgetUpdater.GetTotalIncome();
+        double[] Spending = budgetUpdater.GetTotalSpending();
+        double PlannedIncome = Income[0], ActualIncome = Income[1], PlannedSpending = Spending[0], ActualSpending = Spending[1];
         PlannedLeft.Text = (PlannedIncome - PlannedSpending).ToString();
         ActualLeft.Text = (ActualIncome - ActualSpending).ToString();
         Difference.Text = (double.Parse(ActualLeft.Text) - double.Parse(PlannedLeft.Text)).ToString() + " руб.";
